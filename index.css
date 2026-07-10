@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+* {
+  transition-property: all;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function)
+  );
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+@theme {
+  --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
+  --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
+  --breakpoint-xxl: 82.5rem; /* COMMENT: 1320px */
+  --color-brand-primary: #b64040;
+  --color-brand-primary-dark: #7f1d1d;
+  --color-soft-white: #f4f6f8;
+  --color-soft-dark: #64748b;
+}
+
+.btn-primary {
+  @apply bg-brand-primary border-0 text-white hover:scale-[102%] hover:bg-brand-primary-dark transition-all duration-500;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.content {
+  @apply max-xxl:w-full xxl:max-w-[1320px] xxl:mx-auto;
+}
+
+.section-title {
+  @apply md:font-semibold text-3xl sm:text-4xl md:text-5xl font-medium;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+
+.introduction-profile-background {
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(31, 41, 55, 0.9)),
+    radial-gradient(circle at 92% 12%, rgba(182, 64, 64, 0.2), transparent 26%);
+}
+.blog-background {
+  background:
+    linear-gradient(180deg, #111827 0%, #1f2937 100%),
+    radial-gradient(circle at 110% 30%, rgba(182, 64, 64, 0.18), transparent 25%);
+}
