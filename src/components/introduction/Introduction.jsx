@@ -1,4 +1,4 @@
-import person from "../../assets/images/dr-rogers-hero.jpg";
+import person from "../../assets/images/leif rogers md.webp";
 import "./introduction.css";
 
 const statusBadges = [
@@ -42,7 +42,7 @@ const Introduction = () => {
       </div>
       <div className="max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative">
         <img
-          className="shadow-2xl shadow-slate-950/50 w-full h-full absolute bottom-0 object-cover bg-white rounded-3xl grayscale contrast-110"
+          className="shadow-2xl shadow-slate-950/50 w-full h-full absolute bottom-0 object-cover bg-white rounded-3xl"
           src={person.src}
           alt="Documentary profile portrait of Dr. Leif Rogers, MD"
         />

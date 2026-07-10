@@ -24,15 +24,6 @@ const Profile = () => {
               alt="Public-record profile image of Dr. Leif Rogers"
             />
           </div>
-          <div className="relative bottom-9">
-            <div className="flex justify-center">
-              <div className="px-6 max-w-66 py-3 z-50 text-center bg-white rounded-[4px] center shadow-2xl drop-shadow-2xl shadow-white border border-slate-200">
-                <span className="text-xs sm:text-sm text-slate-600 font-semibold">
-                  Report date: July 8, 2026
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="max-sm:w-full w-[33rem]">
