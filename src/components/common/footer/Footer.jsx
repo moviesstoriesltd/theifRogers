@@ -18,7 +18,7 @@ const Footer = () => {
             LR
           </span>
           <p className="text-2xl sm:text-[28px] my-auto ms-[12px] font-semibold">
-            Theif Rogers MD
+            Thief Rogers MD
           </p>
         </a>
         <div className="mx-7 max-md:my-7 text-center">

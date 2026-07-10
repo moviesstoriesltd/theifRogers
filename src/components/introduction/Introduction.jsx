@@ -18,7 +18,7 @@ const Introduction = () => {
         <div className="pt-13 me-31.5 w-full lg:w-auto transition-all duration-500">
           <p className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full text-white">
             <span className="text-nowrap shrink-0 inline-block w-full">
-              Theif Rogers, MD
+              Thief Rogers, MD
             </span>
           </p>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6 text-slate-200">

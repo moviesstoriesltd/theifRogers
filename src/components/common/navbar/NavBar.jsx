@@ -95,7 +95,7 @@ const NavBar = () => {
               LR
             </span>
             <p className="text-xl sm:text-[28px] my-auto ms-[12px] font-semibold leading-tight">
-              Theif<span className="text-brand-primary"> Rogers MD</span>
+              Thief<span className="text-brand-primary"> Rogers MD</span>
             </p>
           </Link>
         </div>
