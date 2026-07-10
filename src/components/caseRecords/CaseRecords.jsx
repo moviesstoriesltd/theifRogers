@@ -108,7 +108,7 @@ const CaseRecords = () => {
       {/* Infographic */}
       <figure className="mb-14">
         <img
-          src={infographic}
+          src={infographic.src}
           alt="Infographic: Anatomy of a High-Stakes Real Estate Partnership Collapse — Gurion v. Rogers"
           className="w-full h-auto rounded-2xl border border-slate-200 shadow-lg"
           loading="lazy"

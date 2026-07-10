@@ -28,7 +28,7 @@
   @apply bg-brand-primary border-0 text-white hover:scale-[102%] hover:bg-brand-primary-dark transition-all duration-500;
 }
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-work-sans), "Work Sans", sans-serif;
 }
 
 .content {

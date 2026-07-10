@@ -20,7 +20,7 @@ const Profile = () => {
           <div className="max-w-106 h-117 object-fill overflow-hidden rounded-xl bg-slate-100">
             <img
               className="h-[120%] object-cover grayscale contrast-110"
-              src={person}
+              src={person.src}
               alt="Public-record profile image of Dr. Leif Rogers"
             />
           </div>
