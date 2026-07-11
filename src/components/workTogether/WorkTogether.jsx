@@ -15,7 +15,7 @@ const WorkTogether = () => {
         </p>
         <a
           href="#records"
-          className="btn btn-primary px-4 md:px-6.5 py-3 md:py-6 text-[12px] md:text-[16px]"
+          className="inline-flex items-center justify-center gap-2 rounded-lg cursor-pointer btn-primary px-4 md:px-6.5 py-3 md:py-6 text-[12px] md:text-[16px]"
         >
           Review Case Records
           <FontAwesomeIcon

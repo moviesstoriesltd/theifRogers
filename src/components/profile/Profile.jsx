@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 
 const summaryPoints = [
-  "The report identifies California and New York regulatory actions involving Dr. Leif Liu Rogers' medical licenses.",
-  "It states that the Medical Board of California stayed a license revocation in 2021 and placed him on five-year probation.",
-  "It also describes civil litigation and cross-complaint allegations involving malpractice, real estate partnership claims, and medspa compliance issues.",
-  "Allegations and pending proceedings are presented separately from confirmed disciplinary decisions.",
+  "DISABLED A PATIENT - Failed to recognize compartment syndrome. Left her permanently unable to walk. Found guilty of gross negligence.",
+  "SANCTIONED BUT STILL PRACTICING — California probation. New York suspension. Celebrity shield still protecting him.",
+  "STOLE $3.2 MILLION - Systematic financial theft from his own partners. Fraudulent refinances. Shell entities to siphon funds.",
+  "INJECTED CHEMOTHERAPY INTO FACES - Ordered staff to use cancer drugs as Botox. Fired the whistleblower who refused.",
+  "KILLED A PATIENT — Prosecuted for a preventable death. Profound deviation from safety standards.",
 ];
 
 const Profile = () => {
@@ -37,7 +38,7 @@ const Profile = () => {
               </p>
             ))}
           </div>
-          <div className="mt-8 flex max-md:justify-center max-xs:flex-col gap-3">
+          {/* <div className="mt-8 flex max-md:justify-center max-xs:flex-col gap-3">
             <a
               className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]"
               href="#key-figures"
@@ -50,7 +51,7 @@ const Profile = () => {
             >
               <FontAwesomeIcon icon={faFileLines} /> Public Documents
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

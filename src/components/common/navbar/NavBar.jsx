@@ -11,17 +11,11 @@ const navItems = [
   { id: 5, name: "Documents", url: "blog" },
 ];
 
-const handleMenuClick = () => {
-  if (document.activeElement instanceof HTMLElement) {
-    document.activeElement.blur();
-  }
-};
-
 // Shared react-scroll link (spy + smooth). `mobile` tweaks sizing for the
 // dropdown; the active section is highlighted in the gold accent.
-const NavLink = ({ item, mobile = false }) => (
+const NavLink = ({ item, mobile = false, onNavigate }) => (
   <Link
-    onClick={handleMenuClick}
+    onClick={onNavigate}
     to={item.url.toLowerCase()}
     smooth={true}
     duration={1000}
@@ -38,6 +32,7 @@ const NavLink = ({ item, mobile = false }) => (
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -45,6 +40,16 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close the mobile menu when clicking anywhere outside of it.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleOutside = (e) => {
+      if (!e.target.closest?.("[data-mobile-menu]")) setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
+  }, [menuOpen]);
 
   return (
     <header
@@ -57,12 +62,13 @@ const NavBar = () => {
       <div className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-4 sm:h-20 sm:px-8">
         {/* Left: mobile menu + brand */}
         <div className="flex items-center gap-2">
-          <div className="dropdown lg:hidden">
-            <div
-              tabIndex={0}
-              role="button"
+          <div className="relative lg:hidden" data-mobile-menu>
+            <button
+              type="button"
               aria-label="Open menu"
-              className="btn btn-ghost btn-sm px-2 text-[#d5e3fc] hover:bg-white/5"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+              className="inline-flex items-center justify-center rounded-lg px-2 py-1.5 cursor-pointer text-[#d5e3fc] hover:bg-white/5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,17 +79,16 @@ const NavBar = () => {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content z-[1] mt-3 w-60 gap-1 rounded-2xl border border-white/10 bg-[#0d1c2e] p-3 shadow-2xl"
-            >
-              {navItems.map((item) => (
-                <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-                  <NavLink item={item} mobile />
-                </li>
-              ))}
-            </ul>
+            </button>
+            {menuOpen && (
+              <ul className="absolute left-0 z-[1] mt-3 flex w-60 flex-col gap-1 rounded-2xl border border-white/10 bg-[#0d1c2e] p-3 shadow-2xl">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <NavLink item={item} mobile onNavigate={() => setMenuOpen(false)} />
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <Link
