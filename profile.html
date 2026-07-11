@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Report</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #191c23;
+      --surface-2: #21252e;
+      --border: #2c313b;
+      --text: #e7e9ee;
+      --muted: #9aa0ac;
+      --accent: #5b8cff;
+      --accent-soft: rgba(91, 140, 255, 0.12);
+      --danger: #ff6b6b;
+      --ok: #4ecb8d;
+      --warn: #ffb454;
+      --radius: 14px;
+      --shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f6f8;
+        --surface: #ffffff;
+        --surface-2: #f0f2f6;
+        --border: #e2e5ea;
+        --text: #1a1d24;
+        --muted: #626a78;
+        --accent: #2f66ff;
+        --accent-soft: rgba(47, 102, 255, 0.09);
+        --shadow: 0 6px 24px rgba(20, 30, 60, 0.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    /* ---------- States ---------- */
+    .state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 60vh;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 4px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .state p { color: var(--muted); margin: 0; }
+
+    .error-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--danger);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      max-width: 480px;
+      box-shadow: var(--shadow);
+    }
+    .error-box h2 { margin: 0 0 8px; font-size: 18px; }
+    .error-box code {
+      background: var(--surface-2);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .retry-btn {
+      margin-top: 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .retry-btn:hover { filter: brightness(1.08); }
+
+    .hidden { display: none !important; }
+
+    /* ---------- Header / Profile ---------- */
+    .profile-header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--surface-2);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent);
+      border: 2px solid var(--border);
+    }
+    .profile-meta h1 { margin: 0 0 4px; font-size: 26px; }
+    .profile-meta .sub { color: var(--muted); font-size: 15px; }
+    .profile-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    .profile-facts span { color: var(--muted); }
+    .profile-facts strong { color: var(--text); font-weight: 600; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ---------- Cards / Grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      margin: 0 0 16px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kv { display: grid; grid-template-columns: minmax(0, 130px) 1fr; gap: 6px 14px; font-size: 14px; }
+    .kv dt { color: var(--muted); }
+    .kv dd { margin: 0; word-break: break-word; }
+
+    .addr-line { font-size: 15px; margin-bottom: 4px; }
+    .addr-meta { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+
+    ul.clean { list-style: none; margin: 0; padding: 0; }
+    ul.clean li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    ul.clean li:last-child { border-bottom: none; }
+
+    .row-between { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .muted-sm { color: var(--muted); font-size: 12px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    table th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    table td { padding: 10px; border-bottom: 1px solid var(--border); }
+    table tr:last-child td { border-bottom: none; }
+
+    .pill { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .pill.ok { background: rgba(78, 203, 141, 0.14); color: var(--ok); }
+    .pill.warn { background: rgba(255, 180, 84, 0.16); color: var(--warn); }
+    .pill.danger { background: rgba(255, 107, 107, 0.14); color: var(--danger); }
+    .pill.neutral { background: var(--surface-2); color: var(--muted); }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .empty { color: var(--muted); font-size: 14px; font-style: italic; }
+
+    @media (max-width: 560px) {
+      .profile-header { flex-direction: column; text-align: center; }
+      .profile-facts { justify-content: center; }
+      .kv { grid-template-columns: 1fr; gap: 2px; }
+      .kv dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Loading state -->
+    <div id="loading" class="state">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading profile…</p>
+    </div>
+
+    <!-- Error state -->
+    <div id="error" class="state hidden">
+      <div class="error-box">
+        <h2>Unable to load profile</h2>
+        <p id="error-msg">We couldn't load <code>data.json</code>. Please make sure the file exists in the same directory.</p>
+        <button class="retry-btn" onclick="loadProfile()">Try again</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <main id="content" class="hidden"></main>
+  </div>
+
+  <script>
+    "use strict";
+
+    // ---------- Helpers ----------
+    const $ = (id) => document.getElementById(id);
+
+    // Escape untrusted strings before injecting as HTML.
+    function esc(value) {
+      if (value === null || value === undefined || value === "") return "";
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    // Return escaped value, or a placeholder if empty.
+    function val(v, fallback = "—") {
+      return (v === null || v === undefined || v === "") ? fallback : esc(v);
+    }
+
+    function initials(name) {
+      if (!name) return "?";
+      return String(name)
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((p) => p[0])
+        .join("")
+        .toUpperCase();
+    }
+
+    // Map a free-text status to a pill style.
+    function statusClass(status) {
+      const s = String(status || "").toLowerCase();
+      if (/(clear|active|good|resolved|closed|paid|current)/.test(s)) return "ok";
+      if (/(pending|review|warning|hold|probation)/.test(s)) return "warn";
+      if (/(violation|revoked|suspended|guilty|fraud|delinquent|failed)/.test(s)) return "danger";
+      return "neutral";
+    }
+
+    // ---------- Renderers ----------
+    function renderProfile(p = {}) {
+      const avatar = p.image
+        ? `<img class="avatar" src="${esc(p.image)}" alt="${val(p.name, "Profile")}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar',textContent:'${initials(p.name)}'}))" />`
+        : `<div class="avatar">${esc(initials(p.name))}</div>`;
+
+      const facts = [];
+      if (p.age !== undefined && p.age !== null && p.age !== "") facts.push(`<span>Age <strong>${esc(p.age)}</strong></span>`);
+      if (p.occupation) facts.push(`<span>Occupation <strong>${esc(p.occupation)}</strong></span>`);
+      if (p.location) facts.push(`<span>Location <strong>${esc(p.location)}</strong></span>`);
+
+      return `
+        <section class="profile-header">
+          ${avatar}
+          <div class="profile-meta">
+            <h1>${val(p.name, "Unknown")}</h1>
+            <div class="sub">${val(p.occupation, "")} ${p.status ? `<span class="badge">${esc(p.status)}</span>` : ""}</div>
+            <div class="profile-facts">${facts.join("")}</div>
+          </div>
+        </section>`;
+    }
+
+    function renderCurrentAddress(a) {
+      if (!a) return "";
+      const d = a.details || {};
+      const detailRows = [
+        ["Type", d.type],
+        ["Bedrooms", d.bedrooms],
+        ["Bathrooms", d.bathrooms],
+        ["Square Feet", d.square_feet],
+        ["Year Built", d.year_built],
+        ["Est. Value", d.estimated_value],
+      ].filter(([, v]) => v !== undefined && v !== null && v !== "")
+        .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`)
+        .join("");
+
+      const line = [a.street, a.city, a.state, a.zip].filter(Boolean).join(", ");
+
+      return `
+        <div class="card">
+          <h3>Current Address</h3>
+          <div class="addr-line">${val(line, "No address on file")}</div>
+          ${a.since ? `<div class="addr-meta">Resident since ${esc(a.since)}</div>` : ""}
+          ${detailRows ? `<dl class="kv">${detailRows}</dl>` : ""}
+        </div>`;
+    }
+
+    function renderPastAddresses(list) {
+      const items = Array.isArray(list) ? list : [];
+      const body = items.length
+        ? `<ul class="clean">${items.map((a) => {
+            const line = [a.street, a.city, a.state, a.zip].filter(Boolean).join(", ");
+            return `<li class="row-between"><span>${val(line)}</span>${a.period ? `<span class="muted-sm">${esc(a.period)}</span>` : ""}</li>`;
+          }).join("")}</ul>`
+        : `<p class="empty">No past addresses.</p>`;
+      return `<div class="card"><h3>Past Addresses</h3>${body}</div>`;
+    }
+
+    function renderContacts(list) {
+      const items = Array.isArray(list) ? list : [];
+      const body = items.length
+        ? `<ul class="clean">${items.map((c) => {
+            let value = val(c.value);
+            const type = String(c.type || "").toLowerCase();
+            if (c.value && type === "email") value = `<a href="mailto:${esc(c.value)}">${esc(c.value)}</a>`;
+            else if (c.value && type === "phone") value = `<a href="tel:${esc(String(c.value).replace(/[^+\d]/g, ""))}">${esc(c.value)}</a>`;
+            return `<li class="row-between"><span>${value}${c.label ? ` <span class="muted-sm">(${esc(c.label)})</span>` : ""}</span><span class="muted-sm">${esc(c.type || "")}</span></li>`;
+          }).join("")}</ul>`
+        : `<p class="empty">No contact information.</p>`;
+      return `<div class="card"><h3>Contacts</h3>${body}</div>`;
+    }
+
+    function renderAliases(list) {
+      const items = Array.isArray(list) ? list.filter(Boolean) : [];
+      const body = items.length
+        ? `<div class="chips">${items.map((a) => `<span class="chip">${esc(a)}</span>`).join("")}</div>`
+        : `<p class="empty">No known aliases.</p>`;
+      return `<div class="card"><h3>Aliases</h3>${body}</div>`;
+    }
+
+    function renderAssociates(list) {
+      const items = Array.isArray(list) ? list : [];
+      const body = items.length
+        ? `<ul class="clean">${items.map((a) =>
+            `<li class="row-between"><span>${val(a.name)}</span>${a.relationship ? `<span class="muted-sm">${esc(a.relationship)}</span>` : ""}</li>`
+          ).join("")}</ul>`
+        : `<p class="empty">No known associates.</p>`;
+      return `<div class="card"><h3>Associates</h3>${body}</div>`;
+    }
+
+    function renderRecords(records) {
+      const r = records || {};
+      const reg = Array.isArray(r.regulatory) ? r.regulatory : [];
+      const court = Array.isArray(r.court) ? r.court : [];
+
+      const regTable = reg.length
+        ? `<table>
+             <thead><tr><th>Agency</th><th>Status</th><th>Date</th></tr></thead>
+             <tbody>${reg.map((x) =>
+               `<tr><td>${val(x.agency)}</td><td><span class="pill ${statusClass(x.status)}">${val(x.status, "—")}</span></td><td>${val(x.date)}</td></tr>`
+             ).join("")}</tbody>
+           </table>`
+        : `<p class="empty">No regulatory records.</p>`;
+
+      const courtTable = court.length
+        ? `<table>
+             <thead><tr><th>Case</th><th>Status</th><th>Year</th></tr></thead>
+             <tbody>${court.map((x) =>
+               `<tr><td>${val(x.case)}</td><td><span class="pill ${statusClass(x.status)}">${val(x.status, "—")}</span></td><td>${val(x.year)}</td></tr>`
+             ).join("")}</tbody>
+           </table>`
+        : `<p class="empty">No court records.</p>`;
+
+      return `
+        <div class="card full">
+          <h3>Regulatory Records</h3>
+          ${regTable}
+        </div>
+        <div class="card full">
+          <h3>Court Records</h3>
+          ${courtTable}
+        </div>`;
+    }
+
+    function render(data) {
+      const d = data || {};
+      const html = `
+        ${renderProfile(d.profile)}
+        <div class="grid">
+          ${renderCurrentAddress(d.current_address)}
+          ${renderPastAddresses(d.past_addresses)}
+          ${renderContacts(d.contacts)}
+          ${renderAliases(d.aliases)}
+          ${renderAssociates(d.associates)}
+          ${renderRecords(d.records)}
+        </div>`;
+      $("content").innerHTML = html;
+    }
+
+    // ---------- State control ----------
+    function show(state) {
+      $("loading").classList.toggle("hidden", state !== "loading");
+      $("error").classList.toggle("hidden", state !== "error");
+      $("content").classList.toggle("hidden", state !== "content");
+    }
+
+    // ---------- Data loading ----------
+    async function loadProfile() {
+      show("loading");
+      try {
+        const res = await fetch("data.json", { cache: "no-store" });
+        if (!res.ok) throw new Error(`Server responded with ${res.status} ${res.statusText}`);
+
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          throw new Error("The file was found but contains invalid JSON.");
+        }
+
+        render(data);
+        show("content");
+      } catch (err) {
+        $("error-msg").innerHTML =
+          `We couldn't load <code>data.json</code>. ${esc(err.message)}` +
+          `<br><span class="muted-sm">If you opened this file directly (file://), run a local server so the browser can fetch the data.</span>`;
+        show("error");
+        console.error("Profile load failed:", err);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadProfile);
+  </script>
+</body>
+</html>

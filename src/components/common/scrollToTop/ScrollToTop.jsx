@@ -27,7 +27,7 @@ const ScrollToTop = () => {
     <div className="flex justify-end relative  sm:me-10 z-10 transition-all">
       <a
         onClick={scrollToTop}
-        className={`fixed bottom-10 me-5 w-10 h-10 sm:w-12.5 sm:h-12.5 lg:w-15 lg:h-15 flex justify-center items-center rounded-full transition delay-150 duration-500 ease-in-out hover:scale-120 hover:cursor-pointer bg-brand-primary hover:bg-brand-primary-dark text-white ${
+        className={`fixed bottom-10 me-5 w-10 h-10 sm:w-12.5 sm:h-12.5 lg:w-15 lg:h-15 flex justify-center items-center rounded-full transition delay-150 duration-500 ease-in-out hover:scale-120 hover:cursor-pointer bg-black hover:bg-neutral-800 text-white ${
           position < 200 && "scale-0"
         }`}
       >

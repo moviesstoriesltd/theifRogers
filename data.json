@@ -1,0 +1,915 @@
+{
+  "profile": {
+    "name": "Leif L Rogers",
+    "location": "Toluca Lake, CA",
+    "age": 55,
+    "occupation": "",
+    "status": "Likely Single",
+    "image": ""
+  },
+  "current_address": {
+    "street": "10331 Valley Spring Ln",
+    "city": "Toluca Lake",
+    "state": "CA",
+    "zip": "91602",
+    "since": "November 2013",
+    "details": {
+      "type": "Single Family",
+      "bedrooms": "5",
+      "bathrooms": "6",
+      "square_feet": "4,862",
+      "year_built": "2015",
+      "estimated_value": "$5,405,000"
+    }
+  },
+  "past_addresses": [
+    {
+      "street": "48 Valley View RD",
+      "city": "Chappaqua",
+      "state": "NY",
+      "zip": "10514",
+      "period": "July 2023"
+    },
+    {
+      "street": "12041 Maxwellton RD",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "December 2014"
+    },
+    {
+      "street": "11661 Sunshine Ter",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "October 2005"
+    },
+    {
+      "street": "54370 Village Center Dr",
+      "city": "Idyllwild",
+      "state": "CA",
+      "zip": "92549",
+      "period": "July 2015"
+    },
+    {
+      "street": "517 Shady Ave, Unit 10",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "zip": "15206",
+      "period": "September 2000"
+    },
+    {
+      "street": "52101 Red Hill Rd",
+      "city": "Idyllwild",
+      "state": "CA",
+      "zip": "92549",
+      "period": "January 2013"
+    },
+    {
+      "street": "18 Toluca Estates DR",
+      "city": "Toluca Lake",
+      "state": "CA",
+      "zip": "91602",
+      "period": "May 2017"
+    },
+    {
+      "street": "4121 Laurelgrove Ave",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "January 2014"
+    },
+    {
+      "street": "11385 Sunshine Ter",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "October 2005"
+    },
+    {
+      "street": "4053 Laurelgrove Ave",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "January 2014"
+    },
+    {
+      "street": "PO Box 691300",
+      "city": "West Hollywood",
+      "state": "CA",
+      "zip": "90069",
+      "period": "November 2005"
+    },
+    {
+      "street": "3219 Oakdell Ln",
+      "city": "North Hollywood",
+      "state": "CA",
+      "zip": "91604",
+      "period": "January 2013"
+    },
+    {
+      "street": "17235 Otsego St",
+      "city": "Encino",
+      "state": "CA",
+      "zip": "91316",
+      "period": "January 2015"
+    },
+    {
+      "street": "5817 Ranchito Ave",
+      "city": "Valley Glen",
+      "state": "CA",
+      "zip": "91401",
+      "period": "January 2014"
+    },
+    {
+      "street": "12035 Pacoima Ct",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "September 2012"
+    },
+    {
+      "street": "5817 Ranchito AVE",
+      "city": "Van Nuys",
+      "state": "CA",
+      "zip": "91401",
+      "period": "February 2015"
+    },
+    {
+      "street": "3219 Oakdell Ln",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "August 2013"
+    },
+    {
+      "street": "Po Box 1510",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91614",
+      "period": "November 2006"
+    },
+    {
+      "street": "15151 Mulholland Dr",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90077",
+      "period": "April 2007"
+    },
+    {
+      "street": "436 N Bedford Dr, Unit 103",
+      "city": "Beverly Hills",
+      "state": "CA",
+      "zip": "90210",
+      "period": "November 2006"
+    },
+    {
+      "street": "1266 Hardscrabble Rd",
+      "city": "Chappaqua",
+      "state": "NY",
+      "zip": "10514",
+      "period": "August 1988"
+    },
+    {
+      "street": "11458 Laurelcrest Rd",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "November 2005"
+    },
+    {
+      "street": "4045 Vineland Ave, Unit 207",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "November 2005"
+    },
+    {
+      "street": "4705 Whitsett Ave, Unit 106",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "June 2004"
+    },
+    {
+      "street": "3308 Seaview AVE",
+      "city": "Corona Del Mar",
+      "state": "CA",
+      "zip": "92625",
+      "period": "June 2016"
+    },
+    {
+      "street": "11385 Sunshine Ter",
+      "city": "North Hollywood",
+      "state": "CA",
+      "zip": "91604",
+      "period": "January 2006"
+    },
+    {
+      "street": "3950 Laurel Canyon BLVD",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "June 2013"
+    },
+    {
+      "street": "436 N Bedford Dr",
+      "city": "Beverly Hills",
+      "state": "CA",
+      "zip": "90210",
+      "period": "October 2008"
+    },
+    {
+      "street": "8920 Wilshire Blvd, Unit 103",
+      "city": "Beverly Hills",
+      "state": "CA",
+      "zip": "90211",
+      "period": "May 2005"
+    },
+    {
+      "street": "4038 Vineland Ave, Unit 426",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "May 2005"
+    },
+    {
+      "street": "4045 Vineland Ave, Unit 426",
+      "city": "Studio City",
+      "state": "CA",
+      "zip": "91604",
+      "period": "March 2005"
+    },
+    {
+      "street": "202 West ST",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10282",
+      "period": "February 2005"
+    },
+    {
+      "street": "1710 W Alameda AVE",
+      "city": "Burbank",
+      "state": "CA",
+      "zip": "91506",
+      "period": "August 2004"
+    },
+    {
+      "street": "50 Lexington Ave, Unit 26A",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10010",
+      "period": "July 2003"
+    },
+    {
+      "street": "202 W 88th St, Unit 9",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10024",
+      "period": "November 2003"
+    },
+    {
+      "street": "50 Haven Ave, Unit 214",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10032",
+      "period": "July 2001"
+    },
+    {
+      "street": "100 Haven Ave, Unit 17A",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10032",
+      "period": "September 1993"
+    },
+    {
+      "street": "709 W 169th St, Unit 1G",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10032",
+      "period": "December 1999"
+    },
+    {
+      "street": "506 Fort Washington AVE, Unit 2B",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10033",
+      "period": "January 1998"
+    },
+    {
+      "street": "118 W 73rd St, Unit 4A",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10023",
+      "period": "July 1996"
+    },
+    {
+      "street": "Po Box 31533",
+      "city": "Rochester",
+      "state": "NY",
+      "zip": "14603",
+      "period": "January 1993"
+    },
+    {
+      "street": "50 Haven Ave, Unit 249",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10032",
+      "period": "February 1993"
+    },
+    {
+      "street": "506 Fort Washington AVE",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10033",
+      "period": "December 2015"
+    },
+    {
+      "street": "",
+      "city": "Toluca Lake, CA",
+      "state": "",
+      "zip": "",
+      "period": ""
+    },
+    {
+      "street": "",
+      "city": "Chappaqua, NY",
+      "state": "",
+      "zip": "",
+      "period": ""
+    },
+    {
+      "street": "",
+      "city": "Studio City, CA",
+      "state": "",
+      "zip": "",
+      "period": ""
+    },
+    {
+      "street": "",
+      "city": "Idyllwild, CA",
+      "state": "",
+      "zip": "",
+      "period": ""
+    }
+  ],
+  "contacts": [
+    {
+      "type": "Phone",
+      "value": "(818) 763-7703",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(310) 779-9014",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(310) 860-8915",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(310) 779-9024",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(646) 284-6705",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(412) 363-8087",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(818) 763-4322",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(951) 468-4546",
+      "label": "Voip"
+    },
+    {
+      "type": "Phone",
+      "value": "(310) 860-8916",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(818) 309-5221",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(323) 309-7729",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(212) 579-6712",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(212) 795-2804",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(412) 795-2804",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(818) 766-8405",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(818) 795-2804",
+      "label": "Wireless"
+    },
+    {
+      "type": "Phone",
+      "value": "(914) 238-7971",
+      "label": "Landline"
+    },
+    {
+      "type": "Phone",
+      "value": "(917) 521-1720",
+      "label": "Landline"
+    },
+    {
+      "type": "Email",
+      "value": "scalpelman@yahoo.com",
+      "label": "3 breaches"
+    },
+    {
+      "type": "Email",
+      "value": "leifrogers@mac.com",
+      "label": "8 breaches"
+    },
+    {
+      "type": "Email",
+      "value": "aryan@badapplestechsupport.com",
+      "label": "1 breach"
+    },
+    {
+      "type": "Email",
+      "value": "drrogers@leifrogersmd.com",
+      "label": "1 breach"
+    },
+    {
+      "type": "Email",
+      "value": "leif.rogers@yahoo.com",
+      "label": ""
+    },
+    {
+      "type": "Email",
+      "value": "leif.rogers@juno.com",
+      "label": ""
+    }
+  ],
+  "aliases": [
+    "Leif L Rogers Jr",
+    "Leif Rogers",
+    "Leif L Rogern",
+    "Leland L Rogers",
+    "Roger L Leif",
+    "Leif Rodgers",
+    "Rodger Leif",
+    "Rogers Leif",
+    "Rogers Leis"
+  ],
+  "associates": [
+    {
+      "name": "Genesia Rogers",
+      "relationship": "Relative, age 93"
+    },
+    {
+      "name": "Leland Rogers",
+      "relationship": "Relative, age 54"
+    },
+    {
+      "name": "Robert Kotler",
+      "relationship": "Relative, age 78"
+    },
+    {
+      "name": "Robert Rogers",
+      "relationship": "Relative, age 93"
+    },
+    {
+      "name": "Stephen Nahigian",
+      "relationship": "Relative, age 71"
+    },
+    {
+      "name": "Udnaa Chuluunbaatar",
+      "relationship": "Relative, age 50"
+    },
+    {
+      "name": "Albert Kotler",
+      "relationship": "Relative, age 109"
+    },
+    {
+      "name": "Anodari Rogers",
+      "relationship": "Relative, age 24"
+    },
+    {
+      "name": "Barry Kotler",
+      "relationship": "Relative, age 48"
+    },
+    {
+      "name": "Bonnie Lawyer",
+      "relationship": "Relative, age 71"
+    },
+    {
+      "name": "Choong Nam",
+      "relationship": "Relative, age 95"
+    },
+    {
+      "name": "Dana Kotler",
+      "relationship": "Relative, age 50"
+    },
+    {
+      "name": "Douglas Hauck",
+      "relationship": "Relative, age 68"
+    },
+    {
+      "name": "Edith Kotler",
+      "relationship": "Relative, age 108"
+    },
+    {
+      "name": "Edward Kotler",
+      "relationship": "Relative, age 78"
+    },
+    {
+      "name": "Glenn Zeleznick",
+      "relationship": "Relative, age 66"
+    },
+    {
+      "name": "Harold Rosenfeld",
+      "relationship": "Relative, age 86"
+    },
+    {
+      "name": "Helaine Kotler",
+      "relationship": "Relative, age 81"
+    },
+    {
+      "name": "Isabel Kotler",
+      "relationship": "Relative, age 113"
+    },
+    {
+      "name": "Jeong Nam",
+      "relationship": "Relative, age 91"
+    },
+    {
+      "name": "Justin Nam",
+      "relationship": "Relative, age 35"
+    },
+    {
+      "name": "Lauren Kotler",
+      "relationship": "Relative, age 49"
+    },
+    {
+      "name": "Lee Kotler",
+      "relationship": "Relative, age 51"
+    },
+    {
+      "name": "Lindsey Kotler",
+      "relationship": "Relative, age 45"
+    },
+    {
+      "name": "Marley Kotler",
+      "relationship": "Relative, age 41"
+    },
+    {
+      "name": "Marshall Kadner",
+      "relationship": "Relative, age 93"
+    },
+    {
+      "name": "Maureen Kotler",
+      "relationship": "Relative, age 77"
+    },
+    {
+      "name": "Michael Kotler",
+      "relationship": "Relative, age 37"
+    },
+    {
+      "name": "Patricia Nahigian",
+      "relationship": "Relative, age 68"
+    },
+    {
+      "name": "Robert Hashemiyoon",
+      "relationship": "Relative, age 63"
+    },
+    {
+      "name": "Sheldon Reiss",
+      "relationship": "Relative, age 80"
+    },
+    {
+      "name": "Vanessa Nahigian",
+      "relationship": "Relative, age 31"
+    },
+    {
+      "name": "Eun Lee",
+      "relationship": "Relative, age 104"
+    },
+    {
+      "name": "Inkyu Lee",
+      "relationship": "Relative, age 99"
+    },
+    {
+      "name": "Kenneth Lee",
+      "relationship": "Relative, age 50"
+    },
+    {
+      "name": "Kim Hauck",
+      "relationship": "Relative, age 63"
+    },
+    {
+      "name": "Moon Oh",
+      "relationship": "Relative, age 64"
+    },
+    {
+      "name": "Neil Smolen",
+      "relationship": "Relative, age 64"
+    },
+    {
+      "name": "Sarah Stanley",
+      "relationship": "Relative, age 58"
+    },
+    {
+      "name": "Shannon Lee",
+      "relationship": "Relative, age 51"
+    },
+    {
+      "name": "Yasmeine Abbassi",
+      "relationship": "Relative, age 31"
+    },
+    {
+      "name": "Robin Chamberlain",
+      "relationship": "Associate, age 50"
+    },
+    {
+      "name": "Gary Chamberlain",
+      "relationship": "Associate, age 80"
+    },
+    {
+      "name": "Diana Chamberlain",
+      "relationship": "Associate, age 75"
+    },
+    {
+      "name": "Eran Gurion",
+      "relationship": "Associate, age 55"
+    },
+    {
+      "name": "William Apple",
+      "relationship": "Associate, age 62"
+    },
+    {
+      "name": "Alex Nelson",
+      "relationship": "Associate, age 50"
+    },
+    {
+      "name": "Anna Rapaport",
+      "relationship": "Associate, age 90"
+    },
+    {
+      "name": "April Jones",
+      "relationship": "Associate, age 39"
+    },
+    {
+      "name": "Aundrus Poole",
+      "relationship": "Associate, age 42"
+    },
+    {
+      "name": "Bradford Kolb",
+      "relationship": "Associate, age 61"
+    },
+    {
+      "name": "Brendon Waters",
+      "relationship": "Associate, age 35"
+    },
+    {
+      "name": "Brooks Miller",
+      "relationship": "Associate, age 25"
+    },
+    {
+      "name": "Carlos Gil",
+      "relationship": "Associate, age 36"
+    },
+    {
+      "name": "Chassidy Walker",
+      "relationship": "Associate, age 38"
+    },
+    {
+      "name": "Chloe Han",
+      "relationship": "Associate, age 34"
+    },
+    {
+      "name": "Christine Gerson",
+      "relationship": "Associate, age 70"
+    },
+    {
+      "name": "Claudia Gonzalez",
+      "relationship": "Associate, age 57"
+    },
+    {
+      "name": "Daniel Johnson",
+      "relationship": "Associate, age 62"
+    },
+    {
+      "name": "Danthony Palms",
+      "relationship": "Associate, age 41"
+    },
+    {
+      "name": "David Kauffman",
+      "relationship": "Associate, age 60"
+    },
+    {
+      "name": "Ella Vinokur",
+      "relationship": "Associate, age 53"
+    },
+    {
+      "name": "Emerald Calpito",
+      "relationship": "Associate, age 43"
+    },
+    {
+      "name": "Emily Phelps",
+      "relationship": "Associate, age 39"
+    },
+    {
+      "name": "Gail Mcgara",
+      "relationship": "Associate, age 75"
+    },
+    {
+      "name": "Gregory Cassileth",
+      "relationship": "Associate, age 55"
+    },
+    {
+      "name": "Gregory Mueller",
+      "relationship": "Associate, age 64"
+    },
+    {
+      "name": "Huntington Reproductive",
+      "relationship": "Associate, age 32"
+    },
+    {
+      "name": "Jacob Webster",
+      "relationship": "Associate, age 28"
+    },
+    {
+      "name": "John Mcgara",
+      "relationship": "Associate, age 77"
+    },
+    {
+      "name": "John Wilcox",
+      "relationship": "Associate, age 63"
+    },
+    {
+      "name": "Jonathan Gerson",
+      "relationship": "Associate, age 75"
+    },
+    {
+      "name": "Judith Leaf",
+      "relationship": "Associate, age 87"
+    },
+    {
+      "name": "Karin Gurion",
+      "relationship": "Associate, age 48"
+    },
+    {
+      "name": "Katherine Mcconnell",
+      "relationship": "Associate, age 73"
+    },
+    {
+      "name": "Kent Mustari",
+      "relationship": "Associate, age 66"
+    },
+    {
+      "name": "Kristine Gil",
+      "relationship": "Associate, age 36"
+    },
+    {
+      "name": "Laura Creamer",
+      "relationship": "Associate, age 80"
+    },
+    {
+      "name": "Lawrence Koplin",
+      "relationship": "Associate, age 75"
+    },
+    {
+      "name": "Mark Brown",
+      "relationship": "Associate, age 67"
+    },
+    {
+      "name": "Mary Brown",
+      "relationship": "Associate, age 57"
+    },
+    {
+      "name": "Mary Ferrese",
+      "relationship": "Associate, age 70"
+    },
+    {
+      "name": "Matthew Wilson",
+      "relationship": "Associate, age 67"
+    },
+    {
+      "name": "Michael Berns",
+      "relationship": "Associate, age 82"
+    },
+    {
+      "name": "Michael Valenzuela",
+      "relationship": "Associate, age 54"
+    },
+    {
+      "name": "Mike Pirbazari",
+      "relationship": "Associate, age 80"
+    },
+    {
+      "name": "Nanaz Landsberger",
+      "relationship": "Associate, age 43"
+    },
+    {
+      "name": "Nancy Cohen",
+      "relationship": "Associate, age 79"
+    },
+    {
+      "name": "Nathan Walker",
+      "relationship": "Associate, age 40"
+    },
+    {
+      "name": "Norman Leaf",
+      "relationship": "Associate, age 84"
+    },
+    {
+      "name": "Patricia Velasco",
+      "relationship": "Associate, age 57"
+    },
+    {
+      "name": "Patrick Sheridan",
+      "relationship": "Associate, age 81"
+    },
+    {
+      "name": "Penpa Lama",
+      "relationship": "Associate, age 31"
+    },
+    {
+      "name": "Peter Lupus",
+      "relationship": "Associate, age 94"
+    },
+    {
+      "name": "Polina Polishuk",
+      "relationship": "Associate, age 48"
+    },
+    {
+      "name": "Randal Haworth",
+      "relationship": "Associate, age 64"
+    },
+    {
+      "name": "Revi Green",
+      "relationship": "Associate, age 54"
+    },
+    {
+      "name": "Robert Allen",
+      "relationship": "Associate, age 41"
+    },
+    {
+      "name": "Robert Blackwell",
+      "relationship": "Associate, age 41"
+    },
+    {
+      "name": "Robert Howell",
+      "relationship": "Associate, age 64"
+    },
+    {
+      "name": "Ryan Sweeney",
+      "relationship": "Associate, age 33"
+    },
+    {
+      "name": "Sandra Morse",
+      "relationship": "Associate, age 104"
+    },
+    {
+      "name": "Sigal Gurion",
+      "relationship": "Associate, age 60"
+    },
+    {
+      "name": "Tiffany Gunn",
+      "relationship": "Associate, age 50"
+    },
+    {
+      "name": "William Brombacher",
+      "relationship": "Associate, age 61"
+    }
+  ],
+  "records": {
+    "regulatory": [],
+    "court": []
+  }
+}

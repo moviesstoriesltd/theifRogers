@@ -8,7 +8,6 @@ import Profile from "../src/components/profile/Profile";
 import InfinityTimeline from "../src/components/infinityTimeline/InfinityTimeline";
 import KeyFigures from "../src/components/keyFigures/KeyFigures";
 import CaseRecords from "../src/components/caseRecords/CaseRecords";
-import Profession from "../src/components/profession/Profession";
 import Testimonial from "../src/components/testimonial/Testimonial";
 import Contact from "../src/components/contact/Contact";
 
@@ -30,9 +29,6 @@ export default function Page() {
           <KeyFigures />
         </div>
         <CaseRecords />
-        <div className="bg-soft-white">
-          <Profession />
-        </div>
         <Testimonial />
         <Contact />
       </div>
