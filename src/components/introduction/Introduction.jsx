@@ -11,11 +11,11 @@ const statusBadges = [
 const Introduction = () => {
   return (
     <div
-      className="flex max-lg:flex-col-reverse sm:justify-between pt-10 lg:pt-31.5 lg:mb-27.5 max-xl:gap-2 p-2 max-xxl:px-4"
+      className="flex max-lg:flex-col-reverse sm:justify-between pt-6 lg:pt-10 max-xl:gap-2 p-2 pb-0 max-xxl:px-4"
       id="introduction"
     >
-      <div className="w-full flex flex-col justify-between max-lg:text-center">
-        <div className="pt-13 me-31.5 w-full lg:w-auto transition-all duration-500">
+      <div className="w-full flex flex-col justify-center max-lg:text-center">
+        <div className="me-31.5 w-full lg:w-auto transition-all duration-500">
           <p className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full text-white">
             <span className="text-nowrap shrink-0 inline-block w-full">
               Thief Rogers, MD

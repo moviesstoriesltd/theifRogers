@@ -17,12 +17,12 @@ const InfinityNode = ({ node, reached, current, onEnter, onLeave }) => {
         </radialGradient>
       </defs>
 
-      {/* Connector from the tip out to its card */}
+      {/* Connector from the node out to its card (above / below) */}
       <line
         x1={node.x}
         y1={node.y}
         x2={node.anchorX}
-        y2={node.y}
+        y2={node.anchorY}
         stroke={color.from}
         strokeWidth={current ? 3 : 1.8}
         strokeLinecap="round"

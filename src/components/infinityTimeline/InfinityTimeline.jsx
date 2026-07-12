@@ -72,15 +72,15 @@ const InfinityTimeline = () => {
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
             Fifteen documented events, from the first filing in 2006 to the
-            present — traced along one continuous, looping path. Scroll to follow
-            the line.
+            present — traced along one continuous roadmap. Scroll to follow the
+            line.
           </p>
         </motion.div>
 
         {/* ---- Infinity curve (tablet + desktop) ---- */}
         <div className="hidden md:block">
           <div
-            className="relative mx-auto w-full max-w-[720px] lg:max-w-[900px]"
+            className="relative mx-auto w-full max-w-[860px] lg:max-w-[1060px]"
             style={{ aspectRatio: `${inf.width} / ${Math.round(inf.height)}` }}
           >
             <svg
@@ -91,23 +91,6 @@ const InfinityTimeline = () => {
               aria-label="Infinity-shaped timeline of public-record events from 2006 to 2026"
             >
               <InfinityPath path={inf.path} height={inf.height} pathLength={pathLength} />
-
-              {/* START marker at the top center */}
-              <g>
-                <text
-                  x={inf.start.x}
-                  y={inf.start.y - 34}
-                  textAnchor="middle"
-                  fontSize={17}
-                  fontWeight="700"
-                  fill="#0f172a"
-                  style={{ fontFamily: "var(--font-poppins), sans-serif" }}
-                >
-                  2006
-                </text>
-                <circle cx={inf.start.x} cy={inf.start.y} r={9} fill="#0f172a" />
-                <circle cx={inf.start.x} cy={inf.start.y} r={16} fill="none" stroke="#0f172a" strokeWidth="1.5" opacity="0.35" />
-              </g>
 
               {/* Numbered markers */}
               {inf.nodes.map((node) => (
