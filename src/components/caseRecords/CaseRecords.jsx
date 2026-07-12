@@ -1,3 +1,4 @@
+import Image from "next/image";
 import infographic from "../../assets/images/partnership-infographic.png";
 
 const partnershipProperties = [
@@ -107,11 +108,11 @@ const CaseRecords = () => {
 
       {/* Infographic */}
       <figure className="mb-14">
-        <img
-          src={infographic.src}
+        <Image
+          src={infographic}
           alt="Infographic: Anatomy of a High-Stakes Real Estate Partnership Collapse — Gurion v. Rogers"
           className="w-full h-auto rounded-2xl border border-slate-200 shadow-lg"
-          loading="lazy"
+          sizes="(max-width: 1280px) 100vw, 1200px"
         />
         <figcaption className="text-center text-[12px] sm:text-[13px] text-slate-500 mt-3">
           Report exhibit: &ldquo;Anatomy of a High-Stakes Real Estate Partnership

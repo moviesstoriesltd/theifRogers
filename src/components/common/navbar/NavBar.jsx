@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
@@ -11,28 +13,56 @@ const navItems = [
   { id: 5, name: "Documents", url: "blog" },
 ];
 
-// Shared react-scroll link (spy + smooth). `mobile` tweaks sizing for the
-// dropdown; the active section is highlighted in the gold accent.
-const NavLink = ({ item, mobile = false, onNavigate }) => (
-  <Link
-    onClick={onNavigate}
-    to={item.url.toLowerCase()}
-    smooth={true}
-    duration={1000}
-    spy={true}
-    offset={-140}
-    activeClass="!text-[#e9c176] !font-semibold"
-    className={`cursor-pointer uppercase tracking-[0.1em] text-[#c6c6cd] transition-colors hover:text-white ${
-      mobile ? "block px-3 py-2 text-[13px]" : "text-[12px] font-semibold"
-    }`}
-  >
-    {item.name}
-  </Link>
-);
+// Shared nav link. On the homepage it uses react-scroll (spy + smooth); on any
+// other route it routes to `/#section` so the same links keep working.
+const NavLink = ({ item, mobile = false, onNavigate, onHome }) => {
+  const className = `cursor-pointer uppercase tracking-[0.1em] text-[#c6c6cd] transition-colors hover:text-white ${
+    mobile ? "block px-3 py-2 text-[13px]" : "text-[12px] font-semibold"
+  }`;
+
+  if (!onHome) {
+    return (
+      <NextLink onClick={onNavigate} href={`/#${item.url.toLowerCase()}`} className={className}>
+        {item.name}
+      </NextLink>
+    );
+  }
+
+  return (
+    <Link
+      onClick={onNavigate}
+      to={item.url.toLowerCase()}
+      smooth={true}
+      duration={1000}
+      spy={true}
+      offset={-140}
+      activeClass="!text-[#e9c176] !font-semibold"
+      className={className}
+    >
+      {item.name}
+    </Link>
+  );
+};
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+
+  const brandContent = (
+    <>
+      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e9c176]/40 bg-[#122032] text-[13px] font-semibold text-[#e9c176] sm:h-10 sm:w-10 sm:text-sm">
+        LR
+      </span>
+      <span
+        className="text-[20px] font-medium tracking-tight text-[#d5e3fc] sm:text-[26px]"
+        style={{ fontFamily: "var(--font-eb-garamond), serif" }}
+      >
+        Thief <span className="text-[#e9c176]">Rogers MD</span>
+      </span>
+    </>
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -84,47 +114,71 @@ const NavBar = () => {
               <ul className="absolute left-0 z-[1] mt-3 flex w-60 flex-col gap-1 rounded-2xl border border-white/10 bg-[#0d1c2e] p-3 shadow-2xl">
                 {navItems.map((item) => (
                   <li key={item.id}>
-                    <NavLink item={item} mobile onNavigate={() => setMenuOpen(false)} />
+                    <NavLink item={item} mobile onHome={onHome} onNavigate={() => setMenuOpen(false)} />
                   </li>
                 ))}
+                <li>
+                  <NextLink
+                    href="/about"
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.1em] text-[#e9c176] transition-colors hover:text-white"
+                  >
+                    Personal Data
+                  </NextLink>
+                </li>
               </ul>
             )}
           </div>
 
-          <Link
-            to="introduction"
-            smooth={true}
-            duration={900}
-            className="flex cursor-pointer items-center gap-3"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e9c176]/40 bg-[#122032] text-[13px] font-semibold text-[#e9c176] sm:h-10 sm:w-10 sm:text-sm">
-              LR
-            </span>
-            <span
-              className="text-[20px] font-medium tracking-tight text-[#d5e3fc] sm:text-[26px]"
-              style={{ fontFamily: "var(--font-eb-garamond), serif" }}
+          {onHome ? (
+            <Link
+              to="introduction"
+              smooth={true}
+              duration={900}
+              className="flex cursor-pointer items-center gap-3"
             >
-              Thief <span className="text-[#e9c176]">Rogers MD</span>
-            </span>
-          </Link>
+              {brandContent}
+            </Link>
+          ) : (
+            <NextLink href="/" className="flex cursor-pointer items-center gap-3">
+              {brandContent}
+            </NextLink>
+          )}
         </div>
 
         {/* Center: desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <NavLink key={item.id} item={item} />
+            <NavLink key={item.id} item={item} onHome={onHome} />
           ))}
         </nav>
 
-        {/* Right: CTA */}
-        <Link
-          to="contact"
-          smooth={true}
-          duration={900}
-          className="cursor-pointer rounded-full bg-[#e9c176] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#412d00] shadow-lg shadow-[#e9c176]/20 transition-all hover:brightness-110 sm:px-6 sm:text-[12px]"
-        >
-          Submit
-        </Link>
+        {/* Right: CTAs */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <NextLink
+            href="/about"
+            className="hidden cursor-pointer rounded-full border border-[#e9c176]/40 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#e9c176] transition-colors hover:bg-[#e9c176]/10 sm:inline-flex sm:px-6 sm:text-[12px]"
+          >
+            Personal Data
+          </NextLink>
+          {onHome ? (
+            <Link
+              to="contact"
+              smooth={true}
+              duration={900}
+              className="cursor-pointer rounded-full bg-[#e9c176] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#412d00] shadow-lg shadow-[#e9c176]/20 transition-all hover:brightness-110 sm:px-6 sm:text-[12px]"
+            >
+              Submit
+            </Link>
+          ) : (
+            <NextLink
+              href="/#contact"
+              className="cursor-pointer rounded-full bg-[#e9c176] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#412d00] shadow-lg shadow-[#e9c176]/20 transition-all hover:brightness-110 sm:px-6 sm:text-[12px]"
+            >
+              Submit
+            </NextLink>
+          )}
+        </div>
       </div>
     </header>
   );

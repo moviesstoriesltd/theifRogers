@@ -32,7 +32,7 @@ export default function Page() {
         <Testimonial />
         <Contact />
       </div>
-      <div className="bg-[#010f20]">
+      <div className="bg-[#010f20] pt-24 md:pt-28">
         <Footer />
       </div>
       <ScrollToTop />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import person from "../../assets/images/leif rogers md.webp";
 import "./introduction.css";
 
@@ -16,11 +17,11 @@ const Introduction = () => {
     >
       <div className="w-full flex flex-col justify-center max-lg:text-center">
         <div className="me-31.5 w-full lg:w-auto transition-all duration-500">
-          <p className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full text-white">
+          <h1 className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full text-white">
             <span className="text-nowrap shrink-0 inline-block w-full">
               Thief Rogers, MD
             </span>
-          </p>
+          </h1>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6 text-slate-200">
             Thief Records, Regulatory Actions &amp; Court Documents
           </p>
@@ -41,10 +42,13 @@ Leif Rogers, MD is a predator hiding behind a white coat. He built his career on
         
       </div>
       <div className="max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative">
-        <img
-          className="shadow-2xl shadow-slate-950/50 w-full h-full absolute bottom-0 object-cover bg-white rounded-3xl"
-          src={person.src}
+        <Image
+          className="shadow-2xl shadow-slate-950/50 object-cover bg-white rounded-3xl"
+          src={person}
           alt="Documentary profile portrait of Dr. Leif Rogers, MD"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 536px"
         />
       </div>
     </div>

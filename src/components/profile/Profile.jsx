@@ -1,3 +1,4 @@
+import Image from "next/image";
 import person from "../../assets/images/dr-rogers-about.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
@@ -18,11 +19,12 @@ const Profile = () => {
     >
       <div className="flex max-md:flex-col justify-between items-center gap-6">
         <div className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
-          <div className="max-w-106 h-117 object-fill overflow-hidden rounded-xl bg-slate-100">
-            <img
-              className="h-[120%] object-cover grayscale contrast-110"
-              src={person.src}
+          <div className="max-w-106 h-117 overflow-hidden rounded-xl bg-slate-100">
+            <Image
+              className="h-[120%] w-full object-cover grayscale contrast-110"
+              src={person}
               alt="Public-record profile image of Dr. Leif Rogers"
+              sizes="(max-width: 768px) 100vw, 424px"
             />
           </div>
         </div>
