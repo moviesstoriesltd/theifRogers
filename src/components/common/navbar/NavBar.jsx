@@ -5,20 +5,36 @@ import { Link } from "react-scroll";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 
+// Items with `url` are homepage sections; items with `href` are standalone routes.
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "Summary", url: "profile" },
   { id: 3, name: "Key Figures", url: "key-figures" },
   { id: 4, name: "Records", url: "records" },
   { id: 5, name: "Documents", url: "blog" },
+  { id: 6, name: "Report", href: "/report" },
 ];
 
 // Shared nav link. On the homepage it uses react-scroll (spy + smooth); on any
 // other route it routes to `/#section` so the same links keep working.
-const NavLink = ({ item, mobile = false, onNavigate, onHome }) => {
+// Route items (`item.href`) always render a plain NextLink.
+const NavLink = ({ item, mobile = false, onNavigate, onHome, pathname }) => {
   const className = `cursor-pointer uppercase tracking-[0.1em] text-[#c6c6cd] transition-colors hover:text-white ${
     mobile ? "block px-3 py-2 text-[13px]" : "text-[12px] font-semibold"
   }`;
+
+  if (item.href) {
+    const active = pathname === item.href;
+    return (
+      <NextLink
+        onClick={onNavigate}
+        href={item.href}
+        className={`${className} ${active ? "!font-semibold !text-[#e9c176]" : ""}`}
+      >
+        {item.name}
+      </NextLink>
+    );
+  }
 
   if (!onHome) {
     return (
@@ -114,7 +130,13 @@ const NavBar = () => {
               <ul className="absolute left-0 z-[1] mt-3 flex w-60 flex-col gap-1 rounded-2xl border border-white/10 bg-[#0d1c2e] p-3 shadow-2xl">
                 {navItems.map((item) => (
                   <li key={item.id}>
-                    <NavLink item={item} mobile onHome={onHome} onNavigate={() => setMenuOpen(false)} />
+                    <NavLink
+                      item={item}
+                      mobile
+                      onHome={onHome}
+                      pathname={pathname}
+                      onNavigate={() => setMenuOpen(false)}
+                    />
                   </li>
                 ))}
                 <li>
@@ -149,7 +171,7 @@ const NavBar = () => {
         {/* Center: desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <NavLink key={item.id} item={item} onHome={onHome} />
+            <NavLink key={item.id} item={item} onHome={onHome} pathname={pathname} />
           ))}
         </nav>
 
