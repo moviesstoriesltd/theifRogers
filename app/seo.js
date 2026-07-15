@@ -14,7 +14,10 @@ export const absoluteUrl = (path = "/") => {
   return `${SITE_URL}${normalized === "/" ? "/" : normalized}`;
 };
 
-export const DEFAULT_OG_IMAGE = {
+// Vector logo, used only for the Organization/ImageObject JSON-LD node.
+// Social share previews use the generated raster image from
+// app/opengraph-image.js (SVG does not render as an OG/Twitter card image).
+export const LOGO_IMAGE = {
   url: absoluteUrl("/logo.svg"),
   width: 512,
   height: 512,
@@ -49,7 +52,7 @@ export const buildMetadata = ({
       title: resolvedTitle,
       description: resolvedDescription,
       locale: "en_US",
-      images: [DEFAULT_OG_IMAGE],
+      // images supplied by the app/opengraph-image.js file convention
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
     },
@@ -57,7 +60,7 @@ export const buildMetadata = ({
       card: "summary_large_image",
       title: resolvedTitle,
       description: resolvedDescription,
-      images: [DEFAULT_OG_IMAGE.url],
+      // image supplied by the app/opengraph-image.js file convention
     },
   };
 };
@@ -70,9 +73,9 @@ export const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     "@id": `${SITE_URL}/#logo`,
-    url: DEFAULT_OG_IMAGE.url,
-    width: DEFAULT_OG_IMAGE.width,
-    height: DEFAULT_OG_IMAGE.height,
+    url: LOGO_IMAGE.url,
+    width: LOGO_IMAGE.width,
+    height: LOGO_IMAGE.height,
     caption: SITE_NAME,
   },
   sameAs: [],

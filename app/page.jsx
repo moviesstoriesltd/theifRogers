@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div data-theme="light" className="relative">
       <NavBar />
-      <div className="relative">
+      <main className="relative">
         <div className="introduction-profile-background">
           <div className="content">
             <Introduction />
@@ -35,7 +35,7 @@ export default function Page() {
         <CaseRecords />
         <Testimonial />
         <Contact />
-      </div>
+      </main>
       <div className="bg-[#010f20] pt-16 md:pt-20">
         <Footer />
       </div>
