@@ -4,10 +4,10 @@ import person from "../../assets/images/leif rogers md.webp";
 import "./introduction.css";
 
 const statusBadges = [
-  "PUBLIC RECORDS",
-  "COURT FILINGS",
-  "MEDICAL BOARD",
-  "SOURCE INDEX",
+  "PREDATOR",
+  "FRAUD",
+  "THIEF",
+  "LIAR",
 ];
 
 const Introduction = () => {
@@ -24,11 +24,11 @@ const Introduction = () => {
             className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full text-white"
           >
             <span className="text-nowrap shrink-0 inline-block w-full">
-              Leif Rogers MD Public Records
+              Thief Rogers, MD
             </span>
           </h1>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6 text-slate-200">
-            Litigation Reports, Medical Board History &amp; Court Documents
+            Thief Records, Regulatory Actions &amp; Court Documents
           </p>
           <div className="flex flex-wrap max-lg:justify-center gap-3 mb-6" aria-label="Archive topics">
             {statusBadges.map((badge) => (
@@ -41,10 +41,7 @@ const Introduction = () => {
             ))}
           </div>
           <p className="text-xs xxs:text-[15px] lg:text-[17px] mb-6 text-slate-300 max-w-162">
-            A documentary archive organizing public records related to Dr. Leif L. Rogers,
-            MD. The site summarizes source-linked litigation materials, regulator decisions,
-            pending proceedings, and investigative leads while distinguishing documented
-            findings from civil allegations and unverified research items.
+            Leif Rogers, MD is a predator hiding behind a white coat. He built his career on lies—celebrity endorsements, fake testimonials, and a manufactured image of trust. The record exposes him. He disabled a patient for life by failing to recognize compartment syndrome. He stole $3.2 million from his partners through fraudulent refinances and shell companies. He ordered chemotherapy injected into patients' faces as Botox, then fired the whistleblower who refused. He killed a patient through reckless negligence—a death regulators say was entirely preventable. Two states have sanctioned him, yet he continues to operate, using celebrity friends and philanthropy as a shield. This site rips that shield away. The truth is undeniable. Leif Rogers is not a healer. He is a fraud, a thief, and an abuser of everyone who trusted him.
           </p>
 
           <div className="flex max-lg:justify-center">

@@ -19,7 +19,7 @@ export const SITE_SHORT_NAME = "Leif Rogers Public Records";
 export const SITE_PUBLISHER = "Public Records Archive";
 
 export const SITE_DESCRIPTION =
-  "A documentary public-records archive for Dr. Leif L. Rogers, MD, covering litigation reports, medical board history, court filings, pending proceedings, and source references.";
+  "Public-records archive for Dr. Leif L. Rogers, MD: litigation reports, medical board history, court filings, and source-linked references.";
 
 export const SITE_KEYWORDS = [
   "Leif Rogers MD public records",
@@ -48,12 +48,12 @@ export const SITE_ROUTES = {
     path: "/report",
     title: "Leif Rogers MD Litigation & Asset Due Diligence Report",
     description:
-      "Interactive litigation, financing, lien, property, medical board, and court-record due-diligence report for Dr. Leif L. Rogers, MD, with source references and reliability notes.",
+      "Litigation, lien, property, medical board, and court-record due-diligence report for Dr. Leif L. Rogers, MD, with source references and reliability notes.",
   },
   about: {
     path: "/about",
     title: "Leif Rogers MD OSINT Profile & Public-Record Dashboard",
     description:
-      "Searchable OSINT profile dashboard for Dr. Leif L. Rogers, MD, covering addresses, phones, emails, aliases, relatives, associates, property, security exposure, and raw JSON data.",
+      "Searchable OSINT profile dashboard for Dr. Leif L. Rogers, MD: addresses, phones, emails, aliases, relatives, associates, property, and security exposure.",
   },
 };

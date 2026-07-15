@@ -39,7 +39,7 @@ const keyFigures = [
     value: "3",
     label: "Partnership properties",
     detail:
-      "Valley Spring, Laurelgrove I, and Laurelgrove II - the tear-down flip homes at the center of the partnership dispute.",
+      "Valley Spring, Laurelgrove I, and Laurelgrove II — the 'tear-down flip' homes at the center of the partnership dispute.",
   },
 ];
 

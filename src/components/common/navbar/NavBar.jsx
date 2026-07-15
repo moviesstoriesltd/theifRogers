@@ -75,7 +75,7 @@ const NavBar = () => {
         className="text-[20px] font-medium tracking-tight text-[#d5e3fc] sm:text-[26px]"
         style={{ fontFamily: "var(--font-eb-garamond), serif" }}
       >
-        Leif <span className="text-[#e9c176]">Rogers MD</span>
+        Thief <span className="text-[#e9c176]">Rogers MD</span>
       </span>
     </>
   );

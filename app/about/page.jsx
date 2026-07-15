@@ -32,17 +32,15 @@ const SEARCHABLE = new Set([
 ]);
 
 export default function AboutPage() {
-  const [raw, setRaw] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // The profile JSON is a static local import available at render time, so we
+  // seed state with it directly. This makes the full dashboard part of the
+  // server-rendered HTML (crawlable by every search engine, not just JS-capable
+  // ones) and avoids a skeleton flash on first paint.
+  const [raw] = useState(profileData);
+  const [loading] = useState(false);
   const [active, setActive] = useState("overview");
   const [query, setQuery] = useState("");
   const [toast, setToast] = useState("");
-
-  // Client data flow: hydrate from the imported JSON after mount.
-  useEffect(() => {
-    setRaw(profileData);
-    setLoading(false);
-  }, []);
 
   const d = useMemo(() => deriveData(raw), [raw]);
 

@@ -2,11 +2,11 @@ import Image from "next/image";
 import person from "../../assets/images/dr-rogers-about.jpg";
 
 const summaryPoints = [
-  "Medical board records and civil filings are organized as source-linked public-record summaries.",
-  "Regulatory decisions are identified separately from civil allegations and pending matters.",
-  "Financial and property-related claims are presented with case references and verification notes.",
-  "The archive highlights source documents, docket references, and records that require re-checking before reliance.",
-  "The presentation layer is designed for public-record review, corrections, and additional document submissions.",
+  "DISABLED A PATIENT - Failed to recognize compartment syndrome. Left her permanently unable to walk. Found guilty of gross negligence.",
+  "SANCTIONED BUT STILL PRACTICING — California probation. New York suspension. Celebrity shield still protecting him.",
+  "STOLE $3.2 MILLION - Systematic financial theft from his own partners. Fraudulent refinances. Shell entities to siphon funds.",
+  "INJECTED CHEMOTHERAPY INTO FACES - Ordered staff to use cancer drugs as Botox. Fired the whistleblower who refused.",
+  "KILLED A PATIENT — Prosecuted for a preventable death. Profound deviation from safety standards.",
 ];
 
 const Profile = () => {
