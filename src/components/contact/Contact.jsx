@@ -34,9 +34,9 @@ const Contact = () => {
         <div className="flex flex-col-reverse lg:gap-5 xl:gap-25.75 lg:flex-row justify-between">
           <div>
             <div>
-              <p className="text-[35px] max-lg:hidden font-semibold text-nowrap text-[#132238]">
+              <h2 className="text-[35px] max-lg:hidden font-semibold text-nowrap text-[#132238]">
                 Submit Additional Information
-              </p>
+              </h2>
               <p className="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-soft-dark">
                 Share public records, corrections, or source documents for
                 review. Submissions should include enough context to distinguish
@@ -50,9 +50,9 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-full overflow-y-scroll py-6.5">
-            <p className="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-[#132238] lg:hidden text-center">
+            <h2 className="text-xl mb-2 xs:text-2xl sm:text-2xl md:text-[38px] font-semibold text-[#132238] lg:hidden text-center">
               Submit Additional Information
-            </p>
+            </h2>
             <Form />
           </div>
         </div>

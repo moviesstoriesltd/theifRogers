@@ -111,7 +111,7 @@ const Testimonial = () => {
       id="testimonial"
     >
       <div className="mx-auto mb-12 max-w-2xl text-center">
-        <p className="section-title text-slate-950">Testimonials and the Record</p>
+        <h2 className="section-title text-slate-950">Testimonials and the Record</h2>
         <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
           Public testimonials shown alongside documented findings from state
           medical boards and civil courts. Regulatory decisions are identified as

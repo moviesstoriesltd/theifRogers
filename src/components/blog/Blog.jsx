@@ -70,9 +70,11 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <div className="content py-25 px-2 relative" id="blog">
+    <section className="content py-25 px-2 relative" id="blog" aria-labelledby="public-documents-title">
       <div className="max-w-135 text-center mx-auto pb-17.5">
-        <p className="section-title pb-6 text-white">Public Documents</p>
+        <h2 id="public-documents-title" className="section-title pb-6 text-white">
+          Public Documents
+        </h2>
         <p className="text-xs xs:text-[16px] md:text-lg text-slate-300">
           Source categories drawn from the report, including medical board
           decisions, court records, regulatory summaries, news coverage, and
@@ -95,7 +97,7 @@ const Blog = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

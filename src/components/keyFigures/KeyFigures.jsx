@@ -39,15 +39,15 @@ const keyFigures = [
     value: "3",
     label: "Partnership properties",
     detail:
-      "Valley Spring, Laurelgrove I, and Laurelgrove II — the 'tear-down flip' homes at the center of the partnership dispute.",
+      "Valley Spring, Laurelgrove I, and Laurelgrove II - the tear-down flip homes at the center of the partnership dispute.",
   },
 ];
 
 const KeyFigures = () => {
   return (
-    <div className="content px-2 max-xxl:px-4 py-12 md:py-16" id="key-figures">
+    <section className="content px-2 max-xxl:px-4 py-12 md:py-16" id="key-figures">
       <div className="max-w-144.25 mx-auto text-center mb-12">
-        <p className="section-title text-slate-950">Key Figures from the Report</p>
+        <h2 className="section-title text-slate-950">Key Figures from the Report</h2>
         <p className="text-[14px] sm:text-lg text-slate-600 font-normal pt-6">
           Financial and regulatory figures drawn directly from the investigative
           report. Amounts tied to civil litigation reflect allegations, not
@@ -56,23 +56,23 @@ const KeyFigures = () => {
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {keyFigures.map((figure) => (
-          <div
+          <article
             key={figure.id}
             className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300"
           >
             <p className="text-3xl sm:text-4xl font-semibold text-brand-primary">
               {figure.value}
             </p>
-            <p className="text-[15px] sm:text-[17px] font-semibold text-slate-900 mt-2">
+            <h3 className="text-[15px] sm:text-[17px] font-semibold text-slate-900 mt-2">
               {figure.label}
-            </p>
+            </h3>
             <p className="text-[13px] sm:text-[14px] text-slate-600 mt-3 leading-relaxed">
               {figure.detail}
             </p>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

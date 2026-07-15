@@ -1,26 +1,30 @@
-import { SITE_URL } from "./site";
+import { SITE_ROUTES, SITE_URL } from "./site";
 
-// Generates /sitemap.xml. Add new routes here as the site grows.
+const lastModified = new Date("2026-07-15T00:00:00.000Z");
+
+const routes = [
+  {
+    ...SITE_ROUTES.home,
+    changeFrequency: "weekly",
+    priority: 1,
+  },
+  {
+    ...SITE_ROUTES.report,
+    changeFrequency: "weekly",
+    priority: 0.95,
+  },
+  {
+    ...SITE_ROUTES.about,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+];
+
 export default function sitemap() {
-  const lastModified = new Date();
-  return [
-    {
-      url: `${SITE_URL}/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/report`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-  ];
+  return routes.map((route) => ({
+    url: `${SITE_URL}${route.path === "/" ? "/" : route.path}`,
+    lastModified,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 }

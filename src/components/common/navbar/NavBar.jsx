@@ -75,7 +75,7 @@ const NavBar = () => {
         className="text-[20px] font-medium tracking-tight text-[#d5e3fc] sm:text-[26px]"
         style={{ fontFamily: "var(--font-eb-garamond), serif" }}
       >
-        Thief <span className="text-[#e9c176]">Rogers MD</span>
+        Leif <span className="text-[#e9c176]">Rogers MD</span>
       </span>
     </>
   );
@@ -157,6 +157,7 @@ const NavBar = () => {
               to="introduction"
               smooth={true}
               duration={900}
+              aria-label="Go to Leif Rogers public records homepage"
               className="flex cursor-pointer items-center gap-3"
             >
               {brandContent}

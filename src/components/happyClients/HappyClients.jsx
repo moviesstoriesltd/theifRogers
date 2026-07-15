@@ -11,18 +11,21 @@ const sourceNames = [
 ];
 
 const sourceLogos = sourceNames.map((name) => (
-  <span className="text-[#B8BCC2] font-semibold text-lg sm:text-2xl md:text-3xl whitespace-nowrap">
+  <span
+    key={name}
+    className="text-[#B8BCC2] font-semibold text-lg sm:text-2xl md:text-3xl whitespace-nowrap"
+  >
     {name}
   </span>
 ));
 
 const HappyClients = () => {
   return (
-    <div className="content py-10 md:py-25 flex flex-col items-center px-2">
+    <section className="content py-10 md:py-25 flex flex-col items-center px-2" aria-labelledby="referenced-sources-title">
       <div className="max-w-144.25 text-center">
-        <p className="section-title mb-6 text-slate-950">
+        <h2 id="referenced-sources-title" className="section-title mb-6 text-slate-950">
           Referenced Sources
-        </p>
+        </h2>
         <p className="text-[14px] sm:text-lg text-slate-600 font-normal">
           Agencies, courts, news coverage, dockets, and public records named in
           the provided investigative report.
@@ -37,7 +40,7 @@ const HappyClients = () => {
           ))}
         </p>
       </Marquee>
-    </div>
+    </section>
   );
 };
 

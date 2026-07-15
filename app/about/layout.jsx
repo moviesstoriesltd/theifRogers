@@ -1,20 +1,49 @@
-import { SITE_NAME } from "../site";
+import { SITE_ROUTES } from "../site";
+import {
+  breadcrumbSchema,
+  buildMetadata,
+  graph,
+  profileDatasetSchema,
+  webPageSchema,
+} from "../seo";
 
-export const metadata = {
-  title: "Intelligence Profile — Leif L. Rogers Public-Record Dashboard",
-  description:
-    "Interactive public-record intelligence dashboard for Dr. Leif L. Rogers: addresses, phones, emails, aliases, relatives, associates, property, and breach exposure — compiled from public sources.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    type: "profile",
-    url: "/about",
-    siteName: SITE_NAME,
-    title: "Intelligence Profile — Leif L. Rogers Public-Record Dashboard",
-    description:
-      "Interactive public-record intelligence dashboard for Dr. Leif L. Rogers, compiled from public sources.",
-  },
-};
+export const metadata = buildMetadata({
+  title: SITE_ROUTES.about.title,
+  description: SITE_ROUTES.about.description,
+  path: SITE_ROUTES.about.path,
+  type: "website",
+  keywords: [
+    "Leif Rogers OSINT profile",
+    "Leif Rogers public-record dashboard",
+    "Leif Rogers addresses",
+    "Leif Rogers aliases",
+    "public-record profile dataset",
+  ],
+  modifiedTime: "2026-07-15",
+});
+
+const aboutJsonLd = graph(
+  webPageSchema({
+    path: SITE_ROUTES.about.path,
+    name: SITE_ROUTES.about.title,
+    description: SITE_ROUTES.about.description,
+    type: "ProfilePage",
+  }),
+  profileDatasetSchema,
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "OSINT Profile Dashboard", path: SITE_ROUTES.about.path },
+  ])
+);
 
 export default function AboutLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,15 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import NavBar from "../src/components/common/navbar/NavBar";
-import Footer from "../src/components/common/footer/Footer";
-import ScrollToTop from "../src/components/common/scrollToTop/ScrollToTop";
 import Introduction from "../src/components/introduction/Introduction";
 import Profile from "../src/components/profile/Profile";
-import InfinityTimeline from "../src/components/infinityTimeline/InfinityTimeline";
-import KeyFigures from "../src/components/keyFigures/KeyFigures";
-import CaseRecords from "../src/components/caseRecords/CaseRecords";
-import Testimonial from "../src/components/testimonial/Testimonial";
-import Contact from "../src/components/contact/Contact";
+
+const InfinityTimeline = dynamic(() => import("../src/components/infinityTimeline/InfinityTimeline"));
+const KeyFigures = dynamic(() => import("../src/components/keyFigures/KeyFigures"));
+const CaseRecords = dynamic(() => import("../src/components/caseRecords/CaseRecords"));
+const Testimonial = dynamic(() => import("../src/components/testimonial/Testimonial"));
+const Contact = dynamic(() => import("../src/components/contact/Contact"));
+const Footer = dynamic(() => import("../src/components/common/footer/Footer"));
+const ScrollToTop = dynamic(() => import("../src/components/common/scrollToTop/ScrollToTop"), {
+  ssr: false,
+});
 
 export default function Page() {
   return (

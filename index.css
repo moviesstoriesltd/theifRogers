@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-* {
-  transition-property: all;
-  transition-timing-function: var(
-    --tw-ease,
-    var(--default-transition-timing-function)
-  );
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
-  transition-duration: 200ms;
-}
-
 @theme {
   --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
   --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
@@ -50,4 +39,3 @@ body {
     linear-gradient(180deg, #111827 0%, #1f2937 100%),
     radial-gradient(circle at 110% 30%, rgba(182, 64, 64, 0.18), transparent 25%);
 }
-

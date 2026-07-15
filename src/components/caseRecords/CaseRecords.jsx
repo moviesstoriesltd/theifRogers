@@ -98,7 +98,7 @@ const CaseRecords = () => {
   return (
     <div className="content px-2 max-xxl:px-4 py-12 md:py-16" id="records">
       <div className="max-w-176 mx-auto text-center mb-12">
-        <p className="section-title text-slate-950">Case Records &amp; Legal Proceedings</p>
+        <h2 className="section-title text-slate-950">Case Records &amp; Legal Proceedings</h2>
         <p className="text-[14px] sm:text-lg text-slate-600 font-normal pt-6">
           Structured public-record data reproduced from the investigative
           report, covering the real estate partnership dispute and the related
@@ -110,8 +110,9 @@ const CaseRecords = () => {
       <figure className="mb-14">
         <Image
           src={infographic}
-          alt="Infographic: Anatomy of a High-Stakes Real Estate Partnership Collapse — Gurion v. Rogers"
+          alt="Infographic showing the Gurion v. Rogers real-estate partnership dispute, properties, claimed liens, and case timeline"
           className="w-full h-auto rounded-2xl border border-slate-200 shadow-lg"
+          loading="lazy"
           sizes="(max-width: 1280px) 100vw, 1200px"
         />
         <figcaption className="text-center text-[12px] sm:text-[13px] text-slate-500 mt-3">

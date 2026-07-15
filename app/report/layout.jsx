@@ -1,20 +1,50 @@
-import { SITE_NAME } from "../site";
+import { SITE_ROUTES } from "../site";
+import {
+  breadcrumbSchema,
+  buildMetadata,
+  graph,
+  reportSchema,
+  webPageSchema,
+} from "../seo";
 
-export const metadata = {
-  title: "Litigation & Asset Due Diligence Report — Leif L. Rogers, MD",
-  description:
-    "Litigation, financing, liens and property due-diligence report on Leif Liu Rogers, M.D. — confirmed court matters, California Medical Board discipline, commercial-finance filings, and the lead-by-lead investigation matrix.",
-  alternates: { canonical: "/report" },
-  openGraph: {
-    type: "article",
-    url: "/report",
-    siteName: SITE_NAME,
-    title: "Litigation & Asset Due Diligence Report — Leif L. Rogers, MD",
-    description:
-      "Confirmed court matters, regulator decisions, commercial-finance filings and outstanding investigative leads, with reliability ratings and full source index.",
-  },
-};
+export const metadata = buildMetadata({
+  title: SITE_ROUTES.report.title,
+  description: SITE_ROUTES.report.description,
+  path: SITE_ROUTES.report.path,
+  type: "article",
+  keywords: [
+    "Leif Rogers asset due diligence",
+    "Leif Rogers court filings",
+    "Leif Rogers litigation matrix",
+    "California Medical Board Leif Rogers",
+    "public records report",
+  ],
+  publishedTime: "2026-07-13",
+  modifiedTime: "2026-07-15",
+});
+
+const reportJsonLd = graph(
+  webPageSchema({
+    path: SITE_ROUTES.report.path,
+    name: SITE_ROUTES.report.title,
+    description: SITE_ROUTES.report.description,
+    type: "Article",
+  }),
+  reportSchema,
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Litigation Report", path: SITE_ROUTES.report.path },
+  ])
+);
 
 export default function ReportLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reportJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

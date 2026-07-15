@@ -29,14 +29,15 @@ const rolesData = [
 
 const Profession = () => {
   return (
-    <div
+    <section
       className="content grid md:grid-cols-2 max-xxl:px-4 xxl:px-2 py-10 md:py-15 lg:py-37.5"
       id="services"
+      aria-labelledby="topics-covered-title"
     >
       <div className="flex flex-col justify-between h-fit md:pe-8 lg:pe-35.75 max-md:text-center my-auto">
-        <p className="section-title max-md:text-center text-slate-950">
+        <h2 id="topics-covered-title" className="section-title max-md:text-center text-slate-950">
           Topics Covered
-        </p>
+        </h2>
         <div className="mt-6 text-[14px]">
           <p className="text-xs sm:text-lg font-normal text-slate-600 mb-4">
             The site organizes the report into practical reading categories so
@@ -60,7 +61,7 @@ const Profession = () => {
           <Roles role={role} key={index} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

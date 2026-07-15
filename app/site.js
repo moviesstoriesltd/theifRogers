@@ -1,7 +1,7 @@
-// Single source of truth for the site's absolute URL + identity.
-// Priority: explicit env → Vercel production URL → placeholder.
-// ⚠️ Set NEXT_PUBLIC_SITE_URL to your real domain (e.g. https://thiefrogersmd.com)
-//    so canonical URLs, the sitemap, robots.txt and OG tags are correct.
+// Single source of truth for the site's absolute URL and identity.
+// Priority: explicit env -> Vercel production URL -> placeholder.
+// Set NEXT_PUBLIC_SITE_URL to your real domain so canonical URLs,
+// sitemap entries, robots.txt, Open Graph tags, and JSON-LD are correct.
 const fromVercel = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
   : null;
@@ -12,7 +12,48 @@ export const SITE_URL = (
   "https://example.com"
 ).replace(/\/$/, "");
 
-export const SITE_NAME = "Thief Rogers MD";
+export const SITE_NAME = "Leif Rogers MD Public Records Archive";
+
+export const SITE_SHORT_NAME = "Leif Rogers Public Records";
+
+export const SITE_PUBLISHER = "Public Records Archive";
 
 export const SITE_DESCRIPTION =
-  "A neutral documentary archive summarizing the investigative report on Dr. Leif L. Rogers, MD — licensing discipline, court filings, pending proceedings, and related public-record references.";
+  "A documentary public-records archive for Dr. Leif L. Rogers, MD, covering litigation reports, medical board history, court filings, pending proceedings, and source references.";
+
+export const SITE_KEYWORDS = [
+  "Leif Rogers MD public records",
+  "Dr. Leif Rogers",
+  "Leif L. Rogers",
+  "Leif Liu Rogers",
+  "Leif Rogers litigation report",
+  "Leif Rogers medical board",
+  "Leif Rogers lawsuit",
+  "Leif Rogers court records",
+  "public records archive",
+  "medical board discipline",
+  "court filings",
+  "OSINT dashboard",
+  "asset due diligence",
+  "litigation due diligence",
+];
+
+export const SITE_ROUTES = {
+  home: {
+    path: "/",
+    title: "Leif Rogers MD Public Records Archive",
+    description: SITE_DESCRIPTION,
+  },
+  report: {
+    path: "/report",
+    title: "Leif Rogers MD Litigation & Asset Due Diligence Report",
+    description:
+      "Interactive litigation, financing, lien, property, medical board, and court-record due-diligence report for Dr. Leif L. Rogers, MD, with source references and reliability notes.",
+  },
+  about: {
+    path: "/about",
+    title: "Leif Rogers MD OSINT Profile & Public-Record Dashboard",
+    description:
+      "Searchable OSINT profile dashboard for Dr. Leif L. Rogers, MD, covering addresses, phones, emails, aliases, relatives, associates, property, security exposure, and raw JSON data.",
+  },
+};

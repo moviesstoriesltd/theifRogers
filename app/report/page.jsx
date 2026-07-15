@@ -619,35 +619,6 @@ export default function ReportPage() {
           </div>
         </Card>
 
-        {/* ================= IMPORTANT LIMITATION NOTICE ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-2xl border-l-4 border-amber-400 bg-amber-50/90 p-5 shadow-[0_8px_30px_-12px_rgba(217,119,6,0.25)] sm:p-6 print:break-inside-avoid print:bg-white"
-        >
-          <div className="flex gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-400/20 text-amber-600">
-              <Icon name="faTriangleExclamation" className="text-base" />
-            </span>
-            <div>
-              <h2 className="text-base font-bold uppercase tracking-[0.1em] text-amber-900">
-                Important Limitation
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-amber-900/90">
-                This report distinguishes <strong>verified court or regulator records</strong> from{" "}
-                <strong>allegations</strong> and <strong>unverified leads</strong>. A complaint states
-                a party&apos;s allegations; <strong>it is not proof that the allegations are true</strong>.
-                Absence of a freely accessible online result does not establish that no case, lien,
-                deed, UCC filing or judgment exists. Conclusive work requires certified docket sheets,
-                pleadings, disposition documents, recorder index searches and UCC searches using all
-                name variants.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
         {/* ===================== LAYOUT: TOC + BODY ===================== */}
         <div className="flex gap-8">
           {/* Sticky table of contents (desktop only) */}
