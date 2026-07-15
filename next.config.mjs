@@ -29,6 +29,14 @@ const securityHeaders = [
 const nextConfig = {
   compress: true,
   poweredByHeader: false,
+  experimental: {
+    // Inline the stylesheet into <style> tags in the App Router (first-party,
+    // no Critters/external dep). Removes the render-blocking
+    // <link rel="stylesheet"> so CSS no longer gates first paint.
+    inlineCss: true,
+    // Tree-shake barrel imports so only the icons actually used are bundled.
+    optimizePackageImports: ["@fortawesome/free-solid-svg-icons"],
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
