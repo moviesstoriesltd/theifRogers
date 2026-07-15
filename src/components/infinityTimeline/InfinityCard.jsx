@@ -30,7 +30,7 @@ const InfinityCard = ({ node, event, index, isActive, onEnter, onLeave, variant 
       />
       <p
         className="mt-3 text-lg font-semibold leading-none lg:text-xl"
-        style={{ background: gradient, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}
+        style={{ color: color.from }}
       >
         {event.label}
       </p>

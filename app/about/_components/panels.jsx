@@ -96,7 +96,12 @@ export function OverviewPanel({ d }) {
   const { info, addr, prop, security, phones, emails } = d;
   const primaryPhone = phones[0];
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <SectionTitle
+        icon="faGauge" title="Overview"
+        subtitle="Key identity, residence, property, and contact facts at a glance."
+      />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <InfoCard
         icon="faIdCard" title="Identity Summary"
         rows={[
@@ -165,6 +170,7 @@ export function OverviewPanel({ d }) {
           { label: "Years of history", value: d.yearsOfHistory },
         ]}
       />
+      </div>
     </div>
   );
 }
@@ -687,6 +693,10 @@ export function SecurityPanel({ d }) {
 
   return (
     <div className="space-y-5">
+      <SectionTitle
+        icon="faShieldHalved" title="Security & Breach Exposure"
+        subtitle="Compromised credentials, breach counts, and stealer-log exposure per email."
+      />
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {widgets.map((w) => (
           <GlassCard key={w.label} hover className="p-4">

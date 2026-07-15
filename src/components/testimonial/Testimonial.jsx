@@ -107,7 +107,7 @@ const containerVariants = {
 const Testimonial = () => {
   return (
     <section
-      className="mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 md:py-24"
+      className="mx-auto w-full max-w-[1180px] px-4 py-12 sm:px-6 md:py-20"
       id="testimonial"
     >
       <div className="mx-auto mb-12 max-w-2xl text-center">

@@ -39,7 +39,7 @@ const InfinityTimeline = () => {
     <section
       ref={sectionRef}
       id="timeline"
-      className="relative overflow-hidden bg-white py-16 md:py-24"
+      className="relative overflow-hidden bg-white py-10 md:py-16"
       style={{ fontFamily: "var(--font-poppins), var(--font-work-sans), sans-serif" }}
     >
       {/* Minimal white background with soft radial gradients */}

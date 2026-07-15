@@ -151,17 +151,58 @@ export const Kpis = ({ kpis }) => (
   </motion.section>
 );
 
-/* ---------- Sticky tab bar ---------- */
+/* ---------- Left report index (hanging sticky sidebar, matches /report) ---------- */
 
-export const TabBar = ({ active, onChange }) => (
-  <div className="sticky top-16 z-30 -mx-4 border-b border-slate-200/70 bg-slate-50/80 px-4 py-2 backdrop-blur-xl sm:top-20">
+export const SideIndex = ({ active, onJump }) => (
+  <aside className="hidden w-56 shrink-0 xl:block">
+    <nav className="sticky top-28">
+      <ul className="space-y-0.5">
+        {TABS.map((tab, i) => {
+          const isActive = active === tab.key;
+          return (
+            <li key={tab.key}>
+              <a
+                href={`#${tab.key}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onJump(tab.key);
+                }}
+                className={cx(
+                  "flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-colors",
+                  isActive
+                    ? "bg-blue-500/10 text-blue-700"
+                    : "text-slate-500 hover:bg-blue-500/10 hover:text-blue-700"
+                )}
+              >
+                <span
+                  className={cx(
+                    "w-4 shrink-0 text-right font-mono text-[11px]",
+                    isActive ? "text-blue-500" : "text-slate-400"
+                  )}
+                >
+                  {i + 1}
+                </span>
+                {tab.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </aside>
+);
+
+/* ---------- Section directory (mobile jump nav + scroll-spy) ---------- */
+
+export const SectionNav = ({ active, onJump }) => (
+  <div className="sticky top-16 z-30 -mx-4 border-b border-slate-200/70 bg-slate-50/85 px-4 py-2 backdrop-blur-xl sm:top-20">
     <div className="flex gap-1 overflow-x-auto scrollbar-none">
       {TABS.map((tab) => {
         const isActive = active === tab.key;
         return (
           <button
             key={tab.key}
-            onClick={() => onChange(tab.key)}
+            onClick={() => onJump(tab.key)}
             className={cx(
               "relative flex shrink-0 items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors",
               isActive ? "text-blue-700" : "text-slate-500 hover:text-slate-800"
@@ -169,7 +210,7 @@ export const TabBar = ({ active, onChange }) => (
           >
             {isActive && (
               <motion.span
-                layoutId="tab-pill"
+                layoutId="section-pill"
                 className="absolute inset-0 rounded-lg bg-blue-500/10 ring-1 ring-blue-500/20"
                 transition={{ type: "spring", stiffness: 400, damping: 32 }}
               />

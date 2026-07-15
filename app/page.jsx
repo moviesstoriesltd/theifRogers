@@ -22,7 +22,7 @@ export default function Page() {
             <Profile />
           </div>
         </div>
-        <div className="bg-white pt-24 lg:pt-32">
+        <div className="bg-white pt-16 lg:pt-20">
           <InfinityTimeline />
         </div>
         <div className="bg-soft-white">
@@ -32,7 +32,7 @@ export default function Page() {
         <Testimonial />
         <Contact />
       </div>
-      <div className="bg-[#010f20] pt-24 md:pt-28">
+      <div className="bg-[#010f20] pt-16 md:pt-20">
         <Footer />
       </div>
       <ScrollToTop />

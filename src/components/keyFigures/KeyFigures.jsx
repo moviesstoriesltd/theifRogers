@@ -45,7 +45,7 @@ const keyFigures = [
 
 const KeyFigures = () => {
   return (
-    <div className="content px-2 max-xxl:px-4 py-15 md:py-25" id="key-figures">
+    <div className="content px-2 max-xxl:px-4 py-12 md:py-16" id="key-figures">
       <div className="max-w-144.25 mx-auto text-center mb-12">
         <p className="section-title text-slate-950">Key Figures from the Report</p>
         <p className="text-[14px] sm:text-lg text-slate-600 font-normal pt-6">

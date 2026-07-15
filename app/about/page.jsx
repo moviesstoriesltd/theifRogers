@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import profileData from "../../Leif_L_Rogers.json";
 import NavBar from "../../src/components/common/navbar/NavBar";
-import { deriveData } from "./_components/data";
+import { deriveData, TABS } from "./_components/data";
 import { DashboardSkeleton, SearchInput, Icon } from "./_components/ui";
-import { ScrollProgress, Hero, Kpis, TabBar, Toast } from "./_components/sections";
+import { ScrollProgress, Hero, SideIndex, SectionNav, Toast } from "./_components/sections";
 import {
   OverviewPanel, TimelinePanel, AddressesPanel, PhonesPanel, EmailsPanel,
   PropertyPanel, RelativesPanel, AssociatesPanel, AliasesPanel, SecurityPanel,
@@ -35,7 +34,7 @@ const SEARCHABLE = new Set([
 export default function AboutPage() {
   const [raw, setRaw] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [tab, setTab] = useState("overview");
+  const [active, setActive] = useState("overview");
   const [query, setQuery] = useState("");
   const [toast, setToast] = useState("");
 
@@ -77,11 +76,46 @@ export default function AboutPage() {
           /* user dismissed share sheet */
         }
       },
-      json: () => setTab("raw"),
+      json: () => {
+        const el = document.getElementById("raw");
+        if (el)
+          window.scrollTo({
+            top: el.getBoundingClientRect().top + window.scrollY - 130,
+            behavior: "smooth",
+          });
+      },
       pdf: () => window.print(),
     }),
     []
   );
+
+  // Smooth-scroll the directory link to its section.
+  const goToSection = (key) => {
+    const el = document.getElementById(key);
+    if (!el) return;
+    window.scrollTo({
+      top: el.getBoundingClientRect().top + window.scrollY - 130,
+      behavior: "smooth",
+    });
+  };
+
+  // Scroll-spy: highlight the directory entry for whichever section is in view.
+  useEffect(() => {
+    if (loading || !d) return;
+    const els = TABS.map((t) => document.getElementById(t.key)).filter(Boolean);
+    if (!els.length) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, [loading, d]);
 
   if (loading || !d) {
     return (
@@ -90,8 +124,6 @@ export default function AboutPage() {
       </main>
     );
   }
-
-  const ActivePanel = PANELS[tab];
 
   return (
     <main className="relative min-h-screen bg-slate-100 text-slate-900">
@@ -110,40 +142,45 @@ export default function AboutPage() {
         }}
       />
 
-      <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
+      <div className="mx-auto max-w-7xl space-y-6 px-4 py-6">
         <Hero d={d} actions={actions} />
-        <Kpis kpis={d.kpis} />
 
-        {/* Global search */}
+        {/* Global filter — narrows every searchable section of the report at once */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <SearchInput
             value={query}
             onChange={setQuery}
-            placeholder="Global search — addresses, phones, emails, aliases, people…"
+            placeholder="Filter the report — addresses, phones, emails, aliases, people…"
             className="sm:max-w-md"
           />
-          {query && !SEARCHABLE.has(tab) && (
+          {query && (
             <p className="text-xs text-slate-400">
-              Switch to a data tab (Addresses, Phones, People…) to see filtered results.
+              Filtering addresses, phones, emails, aliases &amp; people across the report.
             </p>
           )}
         </div>
 
-        {/* Sticky tabs */}
-        <TabBar active={tab} onChange={setTab} />
+        {/* Mobile directory — horizontal jump nav (hanging sidebar replaces it on xl) */}
+        <div className="xl:hidden">
+          <SectionNav active={active} onJump={goToSection} />
+        </div>
 
-        {/* Animated panel swap */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={tab}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <ActivePanel d={d} query={SEARCHABLE.has(tab) ? query : ""} notify={notify} />
-          </motion.div>
-        </AnimatePresence>
+        {/* Report layout — hanging index on the left, data on the right */}
+        <div className="flex gap-8">
+          <SideIndex active={active} onJump={goToSection} />
+
+          {/* Full report — every section rendered top to bottom */}
+          <div className="min-w-0 flex-1 space-y-14">
+            {TABS.map((t) => {
+              const Panel = PANELS[t.key];
+              return (
+                <section key={t.key} id={t.key} className="scroll-mt-28">
+                  <Panel d={d} query={SEARCHABLE.has(t.key) ? query : ""} notify={notify} />
+                </section>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       <footer className="mt-10 border-t border-slate-200 bg-white/60 py-8 backdrop-blur">

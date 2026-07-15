@@ -96,7 +96,7 @@ const sourceReferences = [
 
 const CaseRecords = () => {
   return (
-    <div className="content px-2 max-xxl:px-4 py-15 md:py-25" id="records">
+    <div className="content px-2 max-xxl:px-4 py-12 md:py-16" id="records">
       <div className="max-w-176 mx-auto text-center mb-12">
         <p className="section-title text-slate-950">Case Records &amp; Legal Proceedings</p>
         <p className="text-[14px] sm:text-lg text-slate-600 font-normal pt-6">
