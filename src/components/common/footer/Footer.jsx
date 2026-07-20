@@ -2,7 +2,7 @@ const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "Summary", url: "profile" },
   { id: 3, name: "Key Figures", url: "key-figures" },
-  { id: 4, name: "Records", url: "records" },
+  { id: 4, name: "Records", href: "/records" },
   { id: 5, name: "Documents", url: "blog" },
   { id: 7, name: "Submit", url: "contact" },
 ];
@@ -31,7 +31,7 @@ const Footer = () => {
             {navItems.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.url.toLowerCase()}`}
+                href={item.href || `#${item.url.toLowerCase()}`}
                 className="group relative text-[12px] font-semibold uppercase tracking-[0.1em] text-[#c6c6cd] transition-colors hover:text-[#e9c176]"
               >
                 {item.name}

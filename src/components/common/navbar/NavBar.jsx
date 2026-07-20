@@ -10,7 +10,7 @@ const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "Summary", url: "profile" },
   { id: 3, name: "Key Figures", url: "key-figures" },
-  { id: 4, name: "Records", url: "records" },
+  { id: 4, name: "Records", href: "/records" },
   { id: 5, name: "Documents", url: "blog" },
   { id: 6, name: "Report", href: "/report" },
 ];

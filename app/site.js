@@ -50,6 +50,12 @@ export const SITE_ROUTES = {
     description:
       "Litigation, lien, property, medical board, and court-record due-diligence report for Dr. Leif L. Rogers, MD, with source references and reliability notes.",
   },
+  records: {
+    path: "/records",
+    title: "Leif Rogers MD Court Records Index",
+    description:
+      "Structured index of court records associated with Dr. Leif L. Rogers, MD, reproduced from the public case index, with per-case detail pages and reliability tiers.",
+  },
   about: {
     path: "/about",
     title: "Leif Rogers MD OSINT Profile & Public-Record Dashboard",
