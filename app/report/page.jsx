@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavBar from "../../src/components/common/navbar/NavBar";
+import Footer from "../../src/components/common/footer/Footer";
 
 /* ==========================================================================
    ICONS + SHARED PRIMITIVES
@@ -692,7 +693,7 @@ export default function ReportPage() {
                 </p>
 
                 {/* At-a-glance counts */}
-                <div className="grid grid-cols-2 gap-3 border-t border-slate-200 pt-5 sm:grid-cols-4">
+                {/* <div className="grid grid-cols-2 gap-3 border-t border-slate-200 pt-5 sm:grid-cols-4">
                   {[
                     { value: "6", label: "Confirmed matters", tone: "text-blue-600" },
                     { value: "2", label: "Primary records (A)", tone: "text-emerald-600" },
@@ -706,7 +707,7 @@ export default function ReportPage() {
                       </p>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </Card>
             </Section>
 
@@ -1040,14 +1041,18 @@ export default function ReportPage() {
       </div>
 
       {/* ========================== FOOTER ========================== */}
-      <footer className="mt-14 border-t border-slate-200 bg-white/60 py-10 backdrop-blur print:mt-8 print:bg-white">
+      <div className="mt-14 border-t border-slate-200 bg-white/60 py-10 backdrop-blur print:mt-8 print:bg-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 text-center">
           <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
             <Icon name="faScaleBalanced" className="text-blue-500" />
             End of Report
           </p>
         </div>
-      </footer>
+      </div>
+
+      <div className="bg-[#010f20] pt-16 md:pt-20 print:hidden">
+        <Footer />
+      </div>
 
       {/* ===================== COPY TOAST ===================== */}
       <AnimatePresence>

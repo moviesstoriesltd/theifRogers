@@ -18,7 +18,7 @@ The previous README was concise and technically helpful, but it had limited sear
 
 The rewritten README improves discoverability and professional clarity:
 
-- SEO-focused H1: `Leif Rogers MD Public Records Archive | Next.js Litigation, Medical Board & OSINT Dashboard`.
+- SEO-focused H1: `Leif Rogers MD Thief Rogers MD | Next.js Litigation, Medical Board & OSINT Dashboard`.
 - Badges for Next.js, React, Tailwind CSS, private status, and license status.
 - Meta-description-style summary for search snippets.
 - Expanded overview with purpose, audience, use cases, and value proposition.

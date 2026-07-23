@@ -806,6 +806,33 @@ export const SECTION_SPEC = [
   { key: "citations", title: "Source Citations", icon: "faLink", kind: "citations" },
 ];
 
+// Which sections actually have sourced content for a given case?
+// Single source of truth shared by the record body and its table of contents,
+// so a section is never listed in the TOC while hidden from the page (or vice
+// versa). `metadata` and `court` always render (core case facts).
+export const getSectionContentMap = (c) => {
+  if (!c) return {};
+  const related = getRelatedCases(c.slug);
+  return {
+    overview: !!(c.overview || c.executiveSummary),
+    executiveSummary: !!(c.executiveSummary || c.overview),
+    metadata: true,
+    parties: (c.parties || []).length > 0,
+    attorneys: (c.attorneys || []).length > 0,
+    court: true,
+    timeline: (c.timeline || []).length > 0,
+    claims: (c.claims || []).length > 0,
+    defenses: (c.defenses || []).length > 0,
+    motions: (c.motions || []).length > 0,
+    orders: (c.orders || []).length > 0,
+    evidence: (c.evidence || []).length > 0,
+    quotes: (c.quotes || []).length > 0,
+    keyFindings: (c.keyFindings || []).length > 0,
+    relatedCases: related.length > 0,
+    citations: (c.citations || []).length > 0,
+  };
+};
+
 export const getAllCases = () => CASES;
 
 export const getCaseSlugs = () => CASES.map((c) => c.slug);

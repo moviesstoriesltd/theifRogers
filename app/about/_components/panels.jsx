@@ -593,7 +593,7 @@ export function AssociatesPanel({ d, query }) {
               onClick={() => setAsc((v) => !v)}
               className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:text-blue-700"
             >
-              <Icon name="faSort" className="text-[11px]" /> {asc ? "A–Z" : "Z–A"}
+              <Icon name="faSort" className="text-[11px]" /> {asc ? "A-Z" : "Z-A"}
             </button>
             <SearchInput value={local} onChange={setLocal} placeholder="Search associates…" className="w-52" />
           </div>

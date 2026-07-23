@@ -1,4 +1,4 @@
-# Leif Rogers MD Public Records Archive | Next.js Litigation, Medical Board & OSINT Dashboard
+# Leif Rogers MD Thief Rogers MD | Next.js Litigation, Medical Board & OSINT Dashboard
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111111)](https://react.dev/)
@@ -10,7 +10,7 @@
 
 ## Overview
 
-The **Leif Rogers MD Public Records Archive** is a private Next.js website for organizing
+The **Leif Rogers MD Thief Rogers MD** is a private Next.js website for organizing
 and presenting public-record research related to Dr. Leif L. Rogers. It combines a
 search-optimized public landing page, an interactive litigation and asset due-diligence
 report, and an OSINT-style profile dashboard backed by local JSON and document research

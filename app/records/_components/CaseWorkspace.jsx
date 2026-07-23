@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Icon, Card, Badge, Ref, cx, fmtDate, SkeletonBlock } from "./ui";
-import { SECTION_SPEC, TIERS } from "../records.data";
+import { SECTION_SPEC, TIERS, getSectionContentMap } from "../records.data";
 
 // Static tone → class lookups (Tailwind can't build interpolated class names).
 const TIER_ICON_BG = { green: "bg-emerald-50", blue: "bg-blue-50", slate: "bg-slate-100" };
@@ -48,6 +48,10 @@ export default function CaseWorkspace({ caseData }) {
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   const tier = TIERS[caseData.tier] || TIERS.metadata;
+
+  // Only list sections that actually render — keep the TOC in sync with the body.
+  const contentMap = getSectionContentMap(caseData);
+  const visibleSections = SECTION_SPEC.filter((s) => contentMap[s.key]);
 
   const scrollTo = (id) => (e) => {
     e.preventDefault();
@@ -171,7 +175,7 @@ export default function CaseWorkspace({ caseData }) {
                 Sections
               </p>
               <ul className="space-y-0.5">
-                {SECTION_SPEC.map((s) => (
+                {visibleSections.map((s) => (
                   <li key={s.key}>
                     <a
                       href={`#${s.key.toLowerCase()}`}

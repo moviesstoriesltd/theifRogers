@@ -171,7 +171,7 @@ with CSS instead).
 <meta property="og:description" content="Documented regulatory actions and court records for [PROFESSIONAL_NAME], with cited sources." />
 <meta property="og:url" content="https://[DOMAIN]/" />
 <meta property="og:image" content="https://[DOMAIN]/og-cover.png" />
-<meta property="og:site_name" content="[ENTITY_NAME] Public Records Archive" />
+<meta property="og:site_name" content="[ENTITY_NAME] Thief Rogers MD" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="[PROFESSIONAL_NAME] | Public Record & Regulatory History" />
@@ -185,19 +185,19 @@ export const metadata = {
   metadataBase: new URL("https://[DOMAIN]"),
   title: {
     default: "[PROFESSIONAL_NAME] | Regulatory Actions, Proceedings & Public Record",
-    template: "%s | [ENTITY_NAME] Public Records Archive",
+    template: "%s | [ENTITY_NAME] Thief Rogers MD",
   },
   description:
     "Documented findings on [PROFESSIONAL_NAME] from state regulatory boards and court records, with sources. Findings and allegations are distinguished.",
   keywords: ["[PROFESSIONAL_NAME]", "[STATE] Medical Board", "public records", "regulatory actions", "court proceedings"],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
-  openGraph: { type: "website", url: "/", siteName: "[ENTITY_NAME] Public Records Archive" },
+  openGraph: { type: "website", url: "/", siteName: "[ENTITY_NAME] Thief Rogers MD" },
   twitter: { card: "summary_large_image" },
 };
 ```
 
-**Character-length guidance:** Title ≈ 50–60 chars; meta description ≈ 140–160 chars.
+**Character-length guidance:** Title ≈ 50-60 chars; meta description ≈ 140-160 chars.
 Front-load the most specific, factual term.
 
 ---
@@ -242,7 +242,7 @@ machine-readable "facts."
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "[ENTITY_NAME] Public Records Archive",
+  "name": "[ENTITY_NAME] Thief Rogers MD",
   "url": "https://[DOMAIN]/",
   "description": "A documentary archive of public regulatory and court records for [PROFESSIONAL_NAME]."
 }
@@ -512,12 +512,12 @@ Verified by / on: ______________________________________
 
 | Time | Segment | Activity |
 |---|---|---|
-| 0–10 | Framing | Why accuracy is the ranking _and_ legal foundation for public-records SEO |
-| 10–25 | Headings & metadata | Walk Modules 2–3; attendees fill Worksheet B–C for a sample page |
-| 25–45 | Sitemap & robots | Build a `sitemap.xml` from Module 1; submit-flow demo |
-| 45–65 | Schema lab | Fill a JSON-LD template (Module 5); validate live |
-| 65–80 | Accuracy drill | Worksheet D — classify sample claims as finding vs. allegation, attribute each |
-| 80–90 | Technical checklist | Run Module 6 against a demo site; assign follow-ups |
+| 0-10 | Framing | Why accuracy is the ranking _and_ legal foundation for public-records SEO |
+| 10-25 | Headings & metadata | Walk Modules 2-3; attendees fill Worksheet B-C for a sample page |
+| 25-45 | Sitemap & robots | Build a `sitemap.xml` from Module 1; submit-flow demo |
+| 45-65 | Schema lab | Fill a JSON-LD template (Module 5); validate live |
+| 65-80 | Accuracy drill | Worksheet D — classify sample claims as finding vs. allegation, attribute each |
+| 80-90 | Technical checklist | Run Module 6 against a demo site; assign follow-ups |
 
 **Learning outcomes:** attendees can (1) produce a valid sitemap and heading hierarchy,
 (2) write neutral, high-intent metadata, (3) implement and validate non-defamatory schema, and
@@ -533,4 +533,4 @@ labeling) is not a footnote — it is what makes the page rank _and_ keeps it de
 later apply these templates to a live site, the one step that can't be templated is verifying
 that each on-page statement matches its cited source before publication.
 
-*End of handout — Modules 1–14 (templates, examples, checklist, worksheet, and facilitator guide).*
+*End of handout — Modules 1-14 (templates, examples, checklist, worksheet, and facilitator guide).*

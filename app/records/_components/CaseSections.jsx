@@ -12,7 +12,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, Card, Badge, Ref, cx, fmtDate, EmptyState } from "./ui";
-import { SECTION_SPEC, TIERS, getRelatedCases } from "../records.data";
+import { SECTION_SPEC, TIERS, getRelatedCases, getSectionContentMap } from "../records.data";
 
 /* ---------- collapsible section shell ---------- */
 const SectionBlock = ({ id, icon, title, hasContent, count, open, onToggle, children }) => (
@@ -37,11 +37,6 @@ const SectionBlock = ({ id, icon, title, hasContent, count, open, onToggle, chil
           {typeof count === "number" && count > 0 && (
             <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-500">
               {count}
-            </span>
-          )}
-          {!hasContent && (
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-              Pending
             </span>
           )}
         </div>
@@ -147,28 +142,8 @@ export default function CaseSections({ caseData }) {
   const related = useMemo(() => getRelatedCases(caseData.slug), [caseData.slug]);
   const [timelineQuery, setTimelineQuery] = useState("");
 
-  // Which sections have real content? Drives default open/closed + "Pending".
-  const contentMap = useMemo(() => {
-    const c = caseData;
-    return {
-      overview: !!(c.overview || c.executiveSummary),
-      executiveSummary: !!(c.executiveSummary || c.overview),
-      metadata: true,
-      parties: (c.parties || []).length > 0,
-      attorneys: (c.attorneys || []).length > 0,
-      court: true,
-      timeline: (c.timeline || []).length > 0,
-      claims: (c.claims || []).length > 0,
-      defenses: (c.defenses || []).length > 0,
-      motions: (c.motions || []).length > 0,
-      orders: (c.orders || []).length > 0,
-      evidence: (c.evidence || []).length > 0,
-      quotes: (c.quotes || []).length > 0,
-      keyFindings: (c.keyFindings || []).length > 0,
-      relatedCases: related.length > 0,
-      citations: (c.citations || []).length > 0,
-    };
-  }, [caseData, related]);
+  // Which sections have real content? Drives default open/closed + visibility.
+  const contentMap = useMemo(() => getSectionContentMap(caseData), [caseData]);
 
   const [open, setOpen] = useState(() => ({ ...contentMap }));
   const toggle = (k) => setOpen((p) => ({ ...p, [k]: !p[k] }));
@@ -185,6 +160,8 @@ export default function CaseSections({ caseData }) {
       {SECTION_SPEC.map((spec) => {
         const id = spec.key.toLowerCase();
         const hasContent = contentMap[spec.key];
+        // Skip sections with no sourced content — no empty "Not yet available" blocks.
+        if (!hasContent) return null;
         const isOpen = !!open[spec.key];
         const commonProps = {
           id, icon: spec.icon, title: spec.title, hasContent,
@@ -266,16 +243,14 @@ export default function CaseSections({ caseData }) {
                     <p className="mt-0.5 text-xs text-slate-500">{caseData.courtSystem} court system</p>
                   </div>
                 </div>
-                <div>
-                  <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
-                    Presiding judge
-                  </p>
-                  {caseData.judge ? (
+                {caseData.judge && (
+                  <div>
+                    <p className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
+                      Presiding judge
+                    </p>
                     <p className="text-sm text-slate-700">{caseData.judge}</p>
-                  ) : (
-                    <EmptyState label="Judge not yet identified" note="The assigned judicial officer has not been sourced from the docket." />
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </SectionBlock>
           );

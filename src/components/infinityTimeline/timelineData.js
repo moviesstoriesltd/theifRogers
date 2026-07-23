@@ -7,7 +7,7 @@ export const timelineEvents = [
     date: "2006",
     label: "2006",
     tag: "Susan Burke — Notice of Ruling",
-    title: "Susan Burke v. Leif Rogers – Notice of Ruling filed",
+    title: "Susan Burke v. Leif Rogers - Notice of Ruling filed",
   },
   {
     date: "2016-02-04",
@@ -40,14 +40,14 @@ export const timelineEvents = [
     label: "Aug 18, 2021",
     tag: "CA Board — 5-yr probation",
     title:
-      "California Medical Board decision – revocation stayed, 5 years probation",
+      "California Medical Board decision - revocation stayed, 5 years probation",
   },
   {
     date: "2022-05-30",
     label: "May 30, 2022",
     tag: "NY OPMC — probation",
     title:
-      "New York OPMC final action effective – 36 month suspension stayed, probation",
+      "New York OPMC final action effective - 36 month suspension stayed, probation",
   },
   {
     date: "2024-01-04",

@@ -56,7 +56,7 @@ export default function OpengraphImage() {
               maxWidth: 980,
             }}
           >
-            Dr. Leif L. Rogers, MD — Public Records Archive
+            Dr. Leif L. Rogers, MD — Thief Rogers MD
           </div>
           <div
             style={{

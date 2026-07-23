@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import profileData from "../../Leif_L_Rogers.json";
 import NavBar from "../../src/components/common/navbar/NavBar";
+import Footer from "../../src/components/common/footer/Footer";
 import { deriveData, TABS } from "./_components/data";
-import { DashboardSkeleton, SearchInput, Icon } from "./_components/ui";
+import { DashboardSkeleton, SearchInput } from "./_components/ui";
 import { ScrollProgress, Hero, SideIndex, SectionNav, Toast } from "./_components/sections";
 import {
   OverviewPanel, TimelinePanel, AddressesPanel, PhonesPanel, EmailsPanel,
@@ -181,17 +182,9 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <footer className="mt-10 border-t border-slate-200 bg-white/60 py-8 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 text-center">
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
-            <Icon name="faShieldHalved" className="text-blue-500" />
-            OSINT Intelligence Dashboard
-          </p>
-          <p className="text-[11px] text-slate-400">
-            Compiled from public records · Presentation layer only — source data unmodified
-          </p>
-        </div>
-      </footer>
+      <div className="mt-10 bg-[#010f20] pt-16 md:pt-20">
+        <Footer />
+      </div>
 
       <Toast message={toast} />
     </main>

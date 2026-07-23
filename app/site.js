@@ -12,11 +12,11 @@ export const SITE_URL = (
   "https://example.com"
 ).replace(/\/$/, "");
 
-export const SITE_NAME = "Leif Rogers MD Public Records Archive";
+export const SITE_NAME = "Leif Rogers MD Thief Rogers MD";
 
 export const SITE_SHORT_NAME = "Leif Rogers Public Records";
 
-export const SITE_PUBLISHER = "Public Records Archive";
+export const SITE_PUBLISHER = "Thief Rogers MD";
 
 export const SITE_DESCRIPTION =
   "Public-records archive for Dr. Leif L. Rogers, MD: litigation reports, medical board history, court filings, and source-linked references.";
@@ -30,7 +30,7 @@ export const SITE_KEYWORDS = [
   "Leif Rogers medical board",
   "Leif Rogers lawsuit",
   "Leif Rogers court records",
-  "public records archive",
+  "thief rogers md",
   "medical board discipline",
   "court filings",
   "OSINT dashboard",
@@ -41,7 +41,7 @@ export const SITE_KEYWORDS = [
 export const SITE_ROUTES = {
   home: {
     path: "/",
-    title: "Leif Rogers MD Public Records Archive",
+    title: "Leif Rogers MD Thief Rogers MD",
     description: SITE_DESCRIPTION,
   },
   report: {

@@ -86,8 +86,8 @@ export default function RecordsIndex({ cases, stats }) {
             <StatTile value={stats.tiers.verified || 0} label="Primary-source verified" tone="text-emerald-300" />
             <StatTile value={stats.jurisdictions} label="Jurisdictions" tone="text-sky-300" />
             <StatTile
-              value={`${(stats.earliest || "").slice(0, 4)}–${(stats.latest || "").slice(0, 4)}`}
-              label="Filing span"
+              value={`${(stats.earliest || "").slice(0, 4)}-${(stats.latest || "").slice(0, 4)}`}
+              label="Filing Spam"
               tone="text-[#e9c176]"
             />
           </div>

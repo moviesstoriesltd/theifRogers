@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import person from "../../assets/images/leif rogers md.webp";
+import person from "../../assets/images/leif rogers md.jpg";
 import "./introduction.css";
 
 const statusBadges = [
@@ -68,7 +68,7 @@ const Introduction = () => {
       </div>
       <div className="max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative">
         <Image
-          className="shadow-2xl shadow-slate-950/50 object-cover bg-white rounded-3xl"
+          className="shadow-2xl shadow-slate-950/50 object-cover bg-white rounded-3xl grayscale"
           src={person}
           alt="Documentary profile portrait of Dr. Leif Rogers, MD"
           fill

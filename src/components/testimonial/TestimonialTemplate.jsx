@@ -38,7 +38,7 @@ const TestimonialTemplate = ({ item }) => {
       className="flex h-full flex-col overflow-hidden rounded-[20px] border border-slate-200/80 bg-white shadow-[0_10px_30px_-18px_rgba(15,23,42,0.25)] transition-shadow duration-300 hover:shadow-[0_22px_45px_-20px_rgba(15,23,42,0.35)]"
     >
       {/* ---- The Review ---- */}
-      <div className="p-6 sm:p-7">
+      {/* <div className="p-6 sm:p-7">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
             <img
@@ -68,15 +68,15 @@ const TestimonialTemplate = ({ item }) => {
         </blockquote>
 
         <time className="mt-5 block text-sm font-light text-slate-400">{review.date}</time>
-      </div>
+      </div> */}
 
       {/* ---- Divider ---- */}
-      <div className="relative px-6 sm:px-7">
+      {/* <div className="relative px-6 sm:px-7">
         <div className="border-t border-dashed border-slate-200" />
         <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
           The Factual Record
         </span>
-      </div>
+      </div> */}
 
       {/* ---- The Factual Record ---- */}
       <div className="mt-auto m-4 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100 sm:m-5">

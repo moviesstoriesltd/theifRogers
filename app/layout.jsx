@@ -18,12 +18,16 @@ const workSans = Work_Sans({
   preload: true,
 });
 
+// Poppins is used ONLY inside the (lazy, below-the-fold) Infinity Timeline, so
+// it is intentionally NOT preloaded — that keeps its font files off the initial
+// critical path. It still loads on demand when the timeline scrolls into view,
+// and `display: swap` means the swap is visually identical to before.
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 const ebGaramond = EB_Garamond({
@@ -71,7 +75,7 @@ export const metadata = {
     apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
   },
   category: "public records",
-  classification: "Public records archive and litigation research",
+  classification: "Thief Rogers MD and litigation research",
   referrer: "strict-origin-when-cross-origin",
   formatDetection: { email: false, telephone: false, address: false },
 };

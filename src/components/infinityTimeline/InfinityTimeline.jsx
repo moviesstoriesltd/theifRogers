@@ -68,7 +68,7 @@ const InfinityTimeline = () => {
             A Journey Through the Record
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-            The Infinity Timeline
+            The Timeline of Deception
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-500 sm:text-base">
             Fifteen documented events, from the first filing in 2006 to the

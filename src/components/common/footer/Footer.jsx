@@ -44,7 +44,7 @@ const Footer = () => {
         {/* Divider + fine print */}
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:justify-between">
           <p className="text-[11px] uppercase tracking-[0.15em] text-[#909097]">
-            &copy; {copyrightYear} Public Records Archive
+            &copy; {copyrightYear} Thief Rogers MD
           </p>
           <p className="max-w-xl text-[12px] leading-relaxed text-[#909097]">
             Documentary public-information website based on the provided
